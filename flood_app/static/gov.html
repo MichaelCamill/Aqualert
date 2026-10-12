@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aqualert — Government Disaster Command Server (NDRF & State Ops)</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Leaflet Map Engine & Thermal Heatmap Plugin -->
+  <link rel="stylesheet" href="/static/vendor/leaflet.css" />
+  <script src="/static/vendor/leaflet.js"></script>
+  <script src="/static/vendor/leaflet-heat.js"></script>
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="/static/style.css?v=2.2">
+  
+  <style>
+    #gov-map {
+      width: 100% !important;
+      height: 100% !important;
+      min-height: calc(100vh - 4rem) !important;
+      position: absolute !important;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    #section-map {
+      width: 100% !important;
+      height: calc(100vh - 4rem) !important;
+      min-height: calc(100vh - 4rem) !important;
+      position: relative !important;
+      overflow: hidden !important;
+    }
+    .tab-active {
+      background-color: #1e293b;
+      color: #38bdf8;
+      border-bottom: 2px solid #38bdf8;
+    }
+    .level-badge-4 { background: #ef4444; color: white; }
+    .level-badge-3 { background: #f97316; color: white; }
+    .level-badge-2 { background: #f59e0b; color: black; }
+    .level-badge-1 { background: #10b981; color: white; }
+  </style>
+</head>
+<body class="bg-[#0b1120] text-slate-100 flex flex-col h-screen w-screen overflow-hidden">
+
+  <!-- ================= TOP GOVERNMENT COMMAND HEADER ================= -->
+  <header class="h-16 bg-slate-900 border-b border-slate-800 px-4 flex items-center justify-between z-30 shrink-0 shadow-xl">
+    <div class="flex items-center space-x-3">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-600 via-orange-500 to-red-600 flex items-center justify-center shadow-lg shadow-orange-500/20 text-white font-black text-lg">
+        <i class="fa-solid fa-shield-halved"></i>
+      </div>
+      <div>
+        <div class="flex items-center space-x-2">
+          <h1 class="font-extrabold text-base text-white tracking-wide"><span class="text-cyan-400 font-black">AQUALERT</span> &bull; GOVERNMENT DISASTER COMMAND SERVER</h1>
+          <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-amber-950 text-amber-300 border border-amber-800 flex items-center gap-1">
+            <i class="fa-solid fa-lock text-[9px]"></i> OFFICER ROLE ACTIVE
+          </span>
+          <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-red-950 text-red-400 border border-red-800 flex items-center gap-1 animate-pulse">
+            <span class="w-2 h-2 rounded-full bg-red-500"></span> LIVE 24/7 INCIDENT DESK
+          </span>
+        </div>
+        <p class="text-[11px] text-slate-400">National Disaster Response Force (NDRF) &bull; State Police &bull; Joint Aviation Command</p>
+      </div>
+    </div>
+
+    <!-- MAIN SECTION TABS (Requirement 6: Separate pages for every section) -->
+    <nav class="flex items-center bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs font-semibold">
+      <button onclick="showSection('map')" id="nav-map" class="px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 tab-active">
+        <i class="fa-solid fa-map-location-dot"></i> Maps
+      </button>
+      <button onclick="showSection('survivors')" id="nav-survivors" class="px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-400 hover:text-white">
+        <i class="fa-solid fa-users"></i> Survivors (<span id="tab-survivor-count">104</span>)
+      </button>
+      <button onclick="showSection('reports')" id="nav-reports" class="px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-400 hover:text-white">
+        <i class="fa-solid fa-file-shield"></i> Situation Reports
+      </button>
+      <button onclick="showSection('contacts')" id="nav-contacts" class="px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-400 hover:text-white">
+        <i class="fa-solid fa-phone-volume"></i> Emergency Dispatch Hub
+      </button>
+      <button onclick="showSection('zones')" id="nav-zones" class="px-3.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-400 hover:text-white">
+        <i class="fa-solid fa-layer-group"></i> Hazard Zones (15-Day Lock)
+      </button>
+    </nav>
+
+    <!-- RIGHT ACTION: 1-Click Report & Portal Switcher (Requirements 3 & 4) -->
+    <div class="flex items-center space-x-2">
+      <!-- 1-Click Situation Report Button (Req 4) -->
+      <button onclick="generateOneClickSitRep()" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg shadow-cyan-600/20 hover:brightness-110 active:scale-95 transition flex items-center gap-1.5">
+        <i class="fa-solid fa-file-pdf"></i>
+        <span>1-Click SitRep</span>
+      </button>
+
+      <!-- Portal Switcher Dropdown (Req 3: User vs Gov separation) -->
+      <div class="relative">
+        <button onclick="togglePortalDropdown()" class="px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 flex items-center gap-1.5">
+          <i class="fa-solid fa-arrows-split-up-and-left"></i>
+          <span>Portals</span>
+          <i class="fa-solid fa-chevron-down text-[10px]"></i>
+        </button>
+        <div id="portal-dropdown" class="hidden absolute right-0 mt-2 w-52 bg-slate-900 border border-slate-700 rounded-xl shadow-2xl p-1.5 z-50 text-xs">
+          <div class="px-2 py-1 text-[10px] text-slate-400 font-bold uppercase tracking-wider">Switch Roles</div>
+          <a href="/gov" class="block px-2.5 py-1.5 rounded-lg bg-slate-800 text-amber-300 font-bold flex items-center gap-2">
+            <i class="fa-solid fa-shield-halved"></i> Government Server
+          </a>
+          <a href="/" class="block px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-slate-800 flex items-center gap-2">
+            <i class="fa-solid fa-user"></i> Citizen / Public Portal
+          </a>
+          <a href="/survivor" class="block px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-slate-800 flex items-center gap-2">
+            <i class="fa-solid fa-life-ring"></i> Survivor Interface
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= SECTION 1: MAPS (MUMBAI MONSOON & ALWAYS-ON HAZARD LEVELS) ================= -->
+  <section id="section-map" class="relative flex-1 w-full h-full overflow-hidden">
+    <div id="gov-map" class="w-full h-full"></div>
+
+    <!-- 4 MAP VIEW SELECTOR & THERMAL HAZARD FLOODMAP CONTROLS (Google Streets, Tactical, 3D, Satellite, Heatmap) -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 glass-panel p-2 rounded-2xl border border-slate-700/90 shadow-2xl flex items-center gap-2 text-xs pointer-events-auto backdrop-blur-xl">
+      <div class="flex items-center gap-1 bg-slate-950/70 p-1 rounded-xl border border-slate-800">
+        <button id="gov-btn-map-realistic" onclick="switchGovMapMode('realistic')" class="px-3 py-1.5 rounded-lg font-bold transition flex items-center gap-1.5 bg-blue-600 text-white shadow">
+          <i class="fa-solid fa-map"></i> Google Streets
+        </button>
+        <button id="gov-btn-map-zone" onclick="switchGovMapMode('zone')" class="px-3 py-1.5 rounded-lg font-medium transition flex items-center gap-1.5 text-slate-400 hover:text-white">
+          <i class="fa-solid fa-layer-group"></i> Dark Tactical
+        </button>
+        <button id="gov-btn-map-3d" onclick="switchGovMapMode('3d')" class="px-3 py-1.5 rounded-lg font-medium transition flex items-center gap-1.5 text-slate-400 hover:text-white">
+          <i class="fa-solid fa-mountain"></i> 3D Topo
+        </button>
+        <button id="gov-btn-map-satellite" onclick="switchGovMapMode('satellite')" class="px-3 py-1.5 rounded-lg font-medium transition flex items-center gap-1.5 text-slate-400 hover:text-white">
+          <i class="fa-solid fa-earth-americas"></i> Satellite
+        </button>
+      </div>
+
+      <!-- Thermal Hazard Floodmap Toggle (Continuous Multi-Stop Gradient) -->
+      <button id="btn-toggle-heatmap" onclick="toggleGovHeatmap()" class="px-3 py-1.5 rounded-xl font-bold transition flex items-center gap-1.5 bg-gradient-to-r from-red-600 to-amber-600 text-white shadow-lg shadow-red-600/30 hover:brightness-110 active:scale-95 border border-red-500/50">
+        <i class="fa-solid fa-fire-flame-curved"></i>
+        <span>Thermal Flood Heatmap</span>
+      </button>
+
+      <div class="h-4 w-px bg-slate-700"></div>
+
+      <!-- Area Focus Jumps -->
+      <div class="flex items-center gap-1">
+        <button onclick="jumpToCity('mumbai')" class="px-2.5 py-1.5 rounded-xl font-bold bg-amber-600/30 hover:bg-amber-600/50 text-amber-300 border border-amber-500/40 flex items-center gap-1 transition">
+          🌧️ Mumbai
+        </button>
+        <button onclick="jumpToCity('nepal')" class="px-2.5 py-1.5 rounded-xl font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1 transition">
+          🏔️ Trishuli
+        </button>
+        <button onclick="fitAllZonesOnGovMap()" class="px-2.5 py-1.5 rounded-xl font-bold bg-cyan-950 hover:bg-cyan-900 text-cyan-300 border border-cyan-800 flex items-center gap-1 transition">
+          <i class="fa-solid fa-expand"></i> Fit All
+        </button>
+      </div>
+    </div>
+
+    <!-- REQUIREMENT 2: ALWAYS SHOW THE HAZARD ZONE LEVELS ON THE MAP (Pinned Top-Right HUD) -->
+    <div class="absolute top-4 right-4 z-20 glass-panel rounded-2xl border border-slate-700/80 p-3.5 shadow-2xl w-80 space-y-2 pointer-events-auto">
+      <div class="flex items-center justify-between border-b border-slate-700/60 pb-2">
+        <div class="flex items-center gap-1.5">
+          <i class="fa-solid fa-triangle-exclamation text-amber-400 text-xs"></i>
+          <h3 class="text-xs font-bold text-white uppercase tracking-wider">HAZARD ZONE LEVELS (LIVE)</h3>
+        </div>
+        <span class="text-[9px] px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 font-mono">ALWAYS VISIBLE</span>
+      </div>
+
+      <!-- Google Maps Mumbai Monsoon Hazard Legend (Requirement 1 & 2) -->
+      <div class="space-y-1.5 text-xs">
+        <div class="flex items-center justify-between p-2 rounded-xl bg-red-950/80 border border-red-800/80">
+          <div class="flex items-center gap-2">
+            <span class="w-3.5 h-3.5 rounded-full bg-red-500 shadow-lg shadow-red-500/50 animate-pulse"></span>
+            <div>
+              <div class="font-bold text-red-200">Level 4: Flooded Zone (Red)</div>
+              <div class="text-[10px] text-red-300/80">&gt;2.5m Inundation &bull; Submerged Roads</div>
+            </div>
+          </div>
+          <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-red-900 text-red-200">Critical</span>
+        </div>
+
+        <div class="flex items-center justify-between p-2 rounded-xl bg-orange-950/80 border border-orange-800/80">
+          <div class="flex items-center gap-2">
+            <span class="w-3.5 h-3.5 rounded-full bg-orange-500 shadow-lg shadow-orange-500/50"></span>
+            <div>
+              <div class="font-bold text-orange-200">Level 3: Unsafe Zone (Orange)</div>
+              <div class="text-[10px] text-orange-300/80">1.0m - 2.5m &bull; River Swell & Severe Erosion</div>
+            </div>
+          </div>
+          <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-orange-900 text-orange-200">Severe</span>
+        </div>
+
+        <div class="flex items-center justify-between p-2 rounded-xl bg-amber-950/80 border border-amber-800/80">
+          <div class="flex items-center gap-2">
+            <span class="w-3.5 h-3.5 rounded-full bg-amber-500 shadow-lg shadow-amber-500/50"></span>
+            <div>
+              <div class="font-bold text-amber-200">Level 2: Flood Nearby (Yellow)</div>
+              <div class="text-[10px] text-amber-300/80">0.3m - 1.0m &bull; Waterlogging Advisory</div>
+            </div>
+          </div>
+          <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-900 text-amber-200">Warning</span>
+        </div>
+
+        <div class="flex items-center justify-between p-2 rounded-xl bg-emerald-950/80 border border-emerald-800/80">
+          <div class="flex items-center gap-2">
+            <span class="w-3.5 h-3.5 rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/50"></span>
+            <div>
+              <div class="font-bold text-emerald-200">Level 1: Safe Zone (Green)</div>
+              <div class="text-[10px] text-emerald-300/80">0m Inundation &bull; Highland Shelters & Helipads</div>
+            </div>
+          </div>
+          <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-900 text-emerald-200">Secure</span>
+        </div>
+      </div>
+
+      <!-- Quick Area Jump: Mumbai Monsoon vs Himalayan Testbed -->
+      <div class="pt-1.5 border-t border-slate-700/60 flex gap-1.5">
+        <button onclick="jumpToCity('mumbai')" class="flex-1 py-1 rounded-lg bg-blue-600/40 hover:bg-blue-600/70 border border-blue-500 text-[11px] font-bold text-blue-200 transition">
+          🌧️ Mumbai Monsoon
+        </button>
+        <button onclick="jumpToCity('nepal')" class="flex-1 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-[11px] font-bold text-slate-300 transition">
+          🏔️ Trishuli Gorge
+        </button>
+      </div>
+    </div>
+
+    <!-- Left Quick Dispatch Mini-Feed -->
+    <div class="absolute top-4 left-4 z-20 glass-panel rounded-2xl border border-slate-700/80 p-3 shadow-2xl w-72 space-y-2 pointer-events-auto">
+      <div class="flex items-center justify-between border-b border-slate-700/60 pb-1.5">
+        <span class="text-xs font-bold text-white uppercase tracking-wider">Active Tactical Forces</span>
+        <span class="text-[10px] text-cyan-400 font-bold">1-Click Ready</span>
+      </div>
+      <div class="space-y-1.5 text-xs">
+        <button onclick="quickDispatchCall('contact-heli-1')" class="w-full text-left p-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-cyan-800 flex items-center justify-between transition">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-helicopter text-cyan-400 text-sm"></i>
+            <div>
+              <div class="font-bold text-white text-[11px]">Helicopter Air-Lift</div>
+              <div class="text-[9px] text-slate-400">4 ALH Choppers Ready</div>
+            </div>
+          </div>
+          <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-300">Scramble</span>
+        </button>
+        <button onclick="quickDispatchCall('contact-cops-1')" class="w-full text-left p-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-blue-800 flex items-center justify-between transition">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-shield-halved text-blue-400 text-sm"></i>
+            <div>
+              <div class="font-bold text-white text-[11px]">Central Cops (112)</div>
+              <div class="text-[9px] text-slate-400">48 Patrol Units</div>
+            </div>
+          </div>
+          <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-blue-950 text-blue-300">Deploy</span>
+        </button>
+        <button onclick="quickDispatchCall('contact-police-reg-1')" class="w-full text-left p-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-indigo-800 flex items-center justify-between transition">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-car-side text-indigo-400 text-sm"></i>
+            <div>
+              <div class="font-bold text-white text-[11px]">Regional Traffic Police</div>
+              <div class="text-[9px] text-slate-400">Subway Roadblocks</div>
+            </div>
+          </div>
+          <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-indigo-950 text-indigo-300">Barricade</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 2: SURVIVOR REPORTS (RECEIVES 100s OF REPORTS + TRACKING - REQ 5) ================= -->
+  <section id="section-survivors" class="hidden flex-1 w-full h-full p-6 overflow-y-auto space-y-4">
+    <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+      <div>
+        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-users text-rose-500"></i>
+          <span>SURVIVOR DISTRESS TRIAGE QUEUE (100+ REPORTS)</span>
+        </h2>
+        <p class="text-xs text-slate-400">Receives real-time distress signals from stranded citizens, waterlogged residents & flood victims.</p>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button onclick="filterSurvivorCategory('ALL')" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-800 text-slate-200 hover:bg-slate-700">All (104)</button>
+        <button onclick="filterSurvivorCategory('PENDING')" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-red-950 text-red-400 border border-red-800 hover:bg-red-900">Pending</button>
+        <button onclick="filterSurvivorCategory('CRITICAL')" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-rose-950 text-rose-300 border border-rose-800 hover:bg-rose-900">Medical Critical</button>
+        <button onclick="filterSurvivorCategory('DISPATCHED')" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-blue-950 text-blue-400 border border-blue-800 hover:bg-blue-900">Dispatched</button>
+      </div>
+    </div>
+
+    <!-- Search and Controls Bar -->
+    <div class="flex items-center justify-between gap-4">
+      <div class="relative flex-1 max-w-md">
+        <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-xs text-slate-400"></i>
+        <input type="text" id="survivor-search" oninput="fetchSurvivorsTable()" placeholder="Search survivor name, phone, landmark, subway..." class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-9 pr-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500">
+      </div>
+      <div class="text-xs text-slate-400 flex items-center gap-2">
+        <span>Showing Page <span id="surv-page" class="font-bold text-white">1</span> of <span id="surv-total-pages" class="font-bold text-white">5</span></span>
+        <button onclick="changeSurvPage(-1)" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-white">&larr; Prev</button>
+        <button onclick="changeSurvPage(1)" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-white">Next &rarr;</button>
+      </div>
+    </div>
+
+    <!-- Table of 100s of Survivor Reports with Clickable Action Buttons (Req 5) -->
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl">
+      <table class="w-full text-left text-xs text-slate-300">
+        <thead class="bg-slate-950 text-[11px] uppercase tracking-wider text-slate-400 border-b border-slate-800">
+          <tr>
+            <th class="p-3.5">ID / Caller</th>
+            <th class="p-3.5">Location & Landmark</th>
+            <th class="p-3.5">Trapped / Medical</th>
+            <th class="p-3.5">Urgency & Needs</th>
+            <th class="p-3.5">Current Status</th>
+            <th class="p-3.5 text-right">Clickable Actions</th>
+          </tr>
+        </thead>
+        <tbody id="survivors-tbody" class="divide-y divide-slate-800">
+          <!-- Populated dynamically via JS -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 3: 1-CLICK SITUATION REPORT (REQ 4) ================= -->
+  <section id="section-reports" class="hidden flex-1 w-full h-full p-6 overflow-y-auto space-y-4">
+    <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+      <div>
+        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-file-shield text-cyan-400"></i>
+          <span>OFFICIAL DISASTER SITUATION REPORT GENERATOR (SITREP)</span>
+        </h2>
+        <p class="text-xs text-slate-400">1-Click intelligence compilation for Prime Minister / Chief Minister / NDRF HQ briefing.</p>
+      </div>
+      <button onclick="generateOneClickSitRep()" class="px-4 py-2 rounded-xl text-xs font-bold bg-cyan-600 hover:bg-cyan-500 text-white shadow-lg shadow-cyan-600/30 flex items-center gap-2">
+        <i class="fa-solid fa-arrows-rotate"></i>
+        <span>Refresh & Re-Generate Report</span>
+      </button>
+    </div>
+
+    <div id="sitrep-container" class="max-w-4xl mx-auto bg-slate-900 border border-slate-700 rounded-2xl p-6 shadow-2xl space-y-6 font-sans">
+      <!-- Populated dynamically via JS -->
+    </div>
+  </section>
+
+  <!-- ================= SECTION 4: EMERGENCY CONTACT & DISPATCH HUB (REQ 4) ================= -->
+  <section id="section-contacts" class="hidden flex-1 w-full h-full p-6 overflow-y-auto space-y-4">
+    <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+      <div>
+        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-phone-volume text-amber-400"></i>
+          <span>EMERGENCY DISPATCH & CONTACT DIRECTORY</span>
+        </h2>
+        <p class="text-xs text-slate-400">Direct operational dispatch channels for Cops, Rescue Helicopters, and Regional Police.</p>
+      </div>
+    </div>
+
+    <div id="contacts-grid" class="grid grid-cols-2 gap-4">
+      <!-- Populated dynamically via JS -->
+    </div>
+  </section>
+
+  <!-- ================= SECTION 5: HAZARD ZONES & 15-DAY COMPLIANCE (REQ 6) ================= -->
+  <section id="section-zones" class="hidden flex-1 w-full h-full p-6 overflow-y-auto space-y-4">
+    <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+      <div>
+        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-layer-group text-emerald-400"></i>
+          <span>HAZARD ZONES REGISTRY & 15-DAY LOCK COMPLIANCE</span>
+        </h2>
+        <p class="text-xs text-slate-400">Monitors all Green, Yellow, Orange, and Red zones. Enforces Rule 6 mandatory 15-day non-ignorable retention.</p>
+      </div>
+      <button onclick="openAddZoneModal()" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white flex items-center gap-1.5">
+        <i class="fa-solid fa-plus"></i> Add New Hazard Zone
+      </button>
+    </div>
+
+    <div id="gov-zones-grid" class="grid grid-cols-2 gap-4">
+      <!-- Populated dynamically via JS -->
+    </div>
+  </section>
+
+  <!-- ================= MODAL: 1-CLICK PRINTABLE SITREP ================= -->
+  <div id="modal-print-sitrep" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="w-full max-w-3xl bg-slate-900 border border-cyan-500 rounded-2xl p-6 shadow-2xl max-h-[90vh] overflow-y-auto space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <span class="text-sm font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-print text-cyan-400"></i> Official Disaster SitRep (Print Ready)
+        </span>
+        <div class="flex items-center gap-2">
+          <button onclick="window.print()" class="px-3 py-1 rounded-lg text-xs font-bold bg-cyan-600 hover:bg-cyan-500 text-white">Print / Save as PDF</button>
+          <button onclick="closeSitRepModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      </div>
+      <div id="modal-sitrep-body" class="space-y-4 text-xs text-slate-200">
+        <!-- Rendered in JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Government Client Application Logic -->
+  <script src="/static/gov.js?v=2.2"></script>
+</body>
+</html>
