@@ -1,0 +1,3289 @@
+{
+  "zones": [
+    {
+      "id": "zone-red-1",
+      "name": "Trishuli River Lower Basin (Bahrabise Sector)",
+      "type": "flooded",
+      "color": "#EF4444",
+      "status": "Active Inundation",
+      "water_level_m": 4.8,
+      "flood_date": "2026-10-06T08:30:00Z",
+      "retention_days": 15,
+      "is_locked_15_days": true,
+      "locked_until": "2026-10-21T08:30:00Z",
+      "severity": "Extreme",
+      "affected_population": 4200,
+      "submerged_roads_km": 8.5,
+      "damaged_bridges": 2,
+      "center": [
+        85.9015,
+        27.7915
+      ],
+      "polygon": [
+        [
+          85.885,
+          27.805
+        ],
+        [
+          85.918,
+          27.798
+        ],
+        [
+          85.925,
+          27.778
+        ],
+        [
+          85.892,
+          27.768
+        ],
+        [
+          85.875,
+          27.785
+        ],
+        [
+          85.885,
+          27.805
+        ]
+      ],
+      "description": "Glacial surge and flash flood inundation. Main highway bridge destroyed, residential quarter flooded under 4.8m debris water.",
+      "cannot_ignore_reason": "PROTOCOL 15-DAY LOCK: Inundated on Oct 6. Safety protocol prohibits closing, ignoring, or demoting flooded zone reports for at least 15 days (Active until Oct 21)."
+    },
+    {
+      "id": "zone-red-2",
+      "name": "Bhote Koshi Torrential Gorge (Tatopani Confluence)",
+      "type": "flooded",
+      "color": "#EF4444",
+      "status": "Debris Surge Active",
+      "water_level_m": 5.2,
+      "flood_date": "2026-10-08T14:15:00Z",
+      "retention_days": 15,
+      "is_locked_15_days": true,
+      "locked_until": "2026-10-23T14:15:00Z",
+      "severity": "Catastrophic",
+      "affected_population": 2850,
+      "submerged_roads_km": 12.1,
+      "damaged_bridges": 3,
+      "center": [
+        85.945,
+        27.952
+      ],
+      "polygon": [
+        [
+          85.932,
+          27.965
+        ],
+        [
+          85.958,
+          27.96
+        ],
+        [
+          85.962,
+          27.938
+        ],
+        [
+          85.939,
+          27.935
+        ],
+        [
+          85.928,
+          27.948
+        ],
+        [
+          85.932,
+          27.965
+        ]
+      ],
+      "description": "Massive mudflow and glacial lake breach along narrow river gorge. Heavy debris deposition, border crossing submerged.",
+      "cannot_ignore_reason": "PROTOCOL 15-DAY LOCK: Inundated on Oct 8. Mandatory post-flood monitoring active until Oct 23. Report dismissal strictly blocked."
+    },
+    {
+      "id": "zone-orange-1",
+      "name": "Dhunche South Slope & Valley Flank",
+      "type": "unsafe",
+      "color": "#F97316",
+      "status": "Erosion & Rapid Swell",
+      "water_level_m": 2.1,
+      "flood_date": "2026-10-07T11:00:00Z",
+      "retention_days": 15,
+      "is_locked_15_days": false,
+      "locked_until": null,
+      "severity": "High Hazard",
+      "affected_population": 1600,
+      "submerged_roads_km": 3.4,
+      "damaged_bridges": 1,
+      "center": [
+        85.3125,
+        28.1095
+      ],
+      "polygon": [
+        [
+          85.295,
+          28.125
+        ],
+        [
+          85.335,
+          28.12
+        ],
+        [
+          85.34,
+          28.095
+        ],
+        [
+          85.305,
+          28.09
+        ],
+        [
+          85.288,
+          28.105
+        ],
+        [
+          85.295,
+          28.125
+        ]
+      ],
+      "description": "River embankment breached by 2.1m crest. Lateral landslides destabilizing the secondary arterial road.",
+      "cannot_ignore_reason": null
+    },
+    {
+      "id": "zone-yellow-1",
+      "name": "Syabrubesi Foothill & Buffer Perimeter",
+      "type": "nearby",
+      "color": "#F59E0B",
+      "status": "Flood Threat Imminent",
+      "water_level_m": 0.9,
+      "flood_date": "2026-10-09T09:00:00Z",
+      "retention_days": 15,
+      "is_locked_15_days": false,
+      "locked_until": null,
+      "severity": "Moderate / Advisory",
+      "affected_population": 3100,
+      "submerged_roads_km": 0.8,
+      "damaged_bridges": 0,
+      "center": [
+        85.342,
+        28.162
+      ],
+      "polygon": [
+        [
+          85.325,
+          28.175
+        ],
+        [
+          85.362,
+          28.172
+        ],
+        [
+          85.368,
+          28.148
+        ],
+        [
+          85.332,
+          28.145
+        ],
+        [
+          85.319,
+          28.158
+        ],
+        [
+          85.325,
+          28.175
+        ]
+      ],
+      "description": "Rising waters in upstream tributaries. Water level within 40cm of top of retaining wall. Precautionary evacuation advisory issued.",
+      "cannot_ignore_reason": null
+    },
+    {
+      "id": "zone-green-1",
+      "name": "Dhunche District Hospital & Military Relief Camp",
+      "type": "safe",
+      "color": "#10B981",
+      "status": "Operational Safe Haven",
+      "water_level_m": 0.0,
+      "flood_date": null,
+      "retention_days": 0,
+      "is_locked_15_days": false,
+      "locked_until": null,
+      "severity": "Zero Hazard (Elevated Ridge)",
+      "affected_population": 0,
+      "submerged_roads_km": 0.0,
+      "damaged_bridges": 0,
+      "center": [
+        85.298,
+        28.118
+      ],
+      "polygon": [
+        [
+          85.285,
+          28.13
+        ],
+        [
+          85.312,
+          28.128
+        ],
+        [
+          85.315,
+          28.105
+        ],
+        [
+          85.288,
+          28.102
+        ],
+        [
+          85.278,
+          28.118
+        ],
+        [
+          85.285,
+          28.13
+        ]
+      ],
+      "description": "Safe highland evacuation camp (elevation 2,050m MSL). Equipped with medical helipad, 400 hospital beds, clean drinking water supply.",
+      "cannot_ignore_reason": null
+    },
+    {
+      "id": "zone-green-2",
+      "name": "Bidur High Plateau Disaster Support Depot",
+      "type": "safe",
+      "color": "#10B981",
+      "status": "Logistics & Food Distribution Center",
+      "water_level_m": 0.0,
+      "flood_date": null,
+      "retention_days": 0,
+      "is_locked_15_days": false,
+      "locked_until": null,
+      "severity": "Zero Hazard (Flat Terrace)",
+      "affected_population": 0,
+      "submerged_roads_km": 0.0,
+      "damaged_bridges": 0,
+      "center": [
+        85.165,
+        27.915
+      ],
+      "polygon": [
+        [
+          85.145,
+          27.93
+        ],
+        [
+          85.185,
+          27.925
+        ],
+        [
+          85.19,
+          27.9
+        ],
+        [
+          85.15,
+          27.895
+        ],
+        [
+          85.138,
+          27.912
+        ],
+        [
+          85.145,
+          27.93
+        ]
+      ],
+      "description": "Central disaster coordination hub outside the flood inundation vector. Heliport and satellite comms online.",
+      "cannot_ignore_reason": null
+    },
+    {
+      "id": "zone-mum-red-1",
+      "name": "Hindmata & Dadar TT Waterlogged Basin (Mumbai Monsoon)",
+      "type": "flooded",
+      "color": "#EF4444",
+      "status": "Severe Inundation (>2.8m)",
+      "water_level_m": 2.8,
+      "flood_date": "2026-10-09T06:00:00Z",
+      "retention_days": 15,
+      "is_locked_15_days": true,
+      "locked_until": "2026-10-24T06:00:00Z",
+      "severity": "Critical (Google Maps Monsoon Level 4)",
+      "affected_population": 28500,
+      "submerged_roads_km": 6.2,
+      "damaged_bridges": 1,
+      "center": [
+        72.8478,
+        19.0178
+      ],
+      "polygon": [
+        [
+          72.841,
+          19.025
+        ],
+        [
+          72.855,
+          19.024
+        ],
+        [
+          72.856,
+          19.011
+        ],
+        [
+          72.842,
+          19.01
+        ],
+        [
+          72.841,
+          19.025
+        ]
+      ],
+      "description": "Chronic monsoon saucer depression. Dr. Ambedkar Road submerged. BMC dewatering pumps operating at 100% capacity.",
+      "cannot_ignore_reason": "MANDATORY 15-DAY LOCK: Post-monsoon flooding watch active until Oct 24."
+    },
+    {
+      "id": "zone-mum-red-2",
+      "name": "Milan Subway & Western Express Flank (Santacruz)",
+      "type": "flooded",
+      "color": "#EF4444",
+      "status": "Subway Fully Submerged (3.4m)",
+      "water_level_m": 3.4,
+      "flood_date": "2026-10-10T12:00:00Z",
+      "retention_days": 15,
+      "is_locked_15_days": true,
+      "locked_until": "2026-10-25T12:00:00Z",
+      "severity": "Extreme (Vehicles Submerged)",
+      "affected_population": 14200,
+      "submerged_roads_km": 4.1,
+      "damaged_bridges": 0,
+      "center": [
+        72.8417,
+        19.0833
+      ],
+      "polygon": [
+        [
+          72.835,
+          19.089
+        ],
+        [
+          72.849,
+          19.088
+        ],
+        [
+          72.848,
+          19.077
+        ],
+        [
+          72.834,
+          19.078
+        ],
+        [
+          72.835,
+          19.089
+        ]
+      ],
+      "description": "Underpass inundated up to railway roof beam level. All vehicular traffic diverted to SV Road flyover.",
+      "cannot_ignore_reason": "MANDATORY 15-DAY LOCK: Monsoon flood alert locked until Oct 25."
+    },
+    {
+      "id": "zone-mum-orange-1",
+      "name": "Kurla Kamani & Mithi River Swell Corridor",
+      "type": "unsafe",
+      "color": "#F97316",
+      "status": "Mithi River Overbank Warning",
+      "water_level_m": 1.6,
+      "flood_date": "2026-10-10T15:00:00Z",
+      "retention_days": 15,
+      "is_locked_15_days": false,
+      "locked_until": null,
+      "severity": "Hazardous (Google Maps Monsoon Level 3)",
+      "affected_population": 35000,
+      "submerged_roads_km": 5.8,
+      "damaged_bridges": 1,
+      "center": [
+        72.8795,
+        19.0728
+      ],
+      "polygon": [
+        [
+          72.871,
+          19.08
+        ],
+        [
+          72.888,
+          19.078
+        ],
+        [
+          72.887,
+          19.065
+        ],
+        [
+          72.87,
+          19.067
+        ],
+        [
+          72.871,
+          19.08
+        ]
+      ],
+      "description": "High tide at 4.6m coinciding with 120mm/hr cloudburst. River levee erosion along LBS Marg.",
+      "cannot_ignore_reason": null
+    },
+    {
+      "id": "zone-mum-yellow-1",
+      "name": "Gandhi Market & King Circle Low Perimeter",
+      "type": "nearby",
+      "color": "#F59E0B",
+      "status": "Waterlogging Alert (0.7m)",
+      "water_level_m": 0.7,
+      "flood_date": "2026-10-11T04:00:00Z",
+      "retention_days": 15,
+      "is_locked_15_days": false,
+      "locked_until": null,
+      "severity": "Moderate Caution (Google Maps Monsoon Level 2)",
+      "affected_population": 18000,
+      "submerged_roads_km": 2.5,
+      "damaged_bridges": 0,
+      "center": [
+        72.859,
+        19.035
+      ],
+      "polygon": [
+        [
+          72.852,
+          19.041
+        ],
+        [
+          72.866,
+          19.04
+        ],
+        [
+          72.865,
+          19.03
+        ],
+        [
+          72.851,
+          19.031
+        ],
+        [
+          72.852,
+          19.041
+        ]
+      ],
+      "description": "Water accumulation near railway culverts. Slow traffic moving on central lane only.",
+      "cannot_ignore_reason": null
+    },
+    {
+      "id": "zone-mum-green-1",
+      "name": "Malabar Hill & Cumballa Ridge Safe Haven",
+      "type": "safe",
+      "color": "#10B981",
+      "status": "Elevated Highland - 0m Flood Risk",
+      "water_level_m": 0.0,
+      "flood_date": null,
+      "retention_days": 0,
+      "is_locked_15_days": false,
+      "locked_until": null,
+      "severity": "Safe Haven Level 1 (Elevation 55m)",
+      "affected_population": 0,
+      "submerged_roads_km": 0.0,
+      "damaged_bridges": 0,
+      "center": [
+        72.805,
+        18.955
+      ],
+      "polygon": [
+        [
+          72.798,
+          18.965
+        ],
+        [
+          72.812,
+          18.963
+        ],
+        [
+          72.811,
+          18.948
+        ],
+        [
+          72.797,
+          18.95
+        ],
+        [
+          72.798,
+          18.965
+        ]
+      ],
+      "description": "High-altitude natural basalt ridge. Emergency government relief shelter and medical supplies center.",
+      "cannot_ignore_reason": null
+    }
+  ],
+  "flood_prone_areas": [
+    {
+      "id": "fp-1",
+      "name": "Bhotekoshi Alluvial Meander Choke-Point",
+      "river_basin": "Bhote Koshi River Basin",
+      "risk_level": "Extreme",
+      "historical_frequency": "Every Monsoon (High-intensity GLOF vulnerability)",
+      "elevation_m": 1280,
+      "coordinates": [
+        85.912,
+        27.815
+      ],
+      "radius_m": 1800,
+      "polygon": [
+        [
+          85.9,
+          27.825
+        ],
+        [
+          85.928,
+          27.822
+        ],
+        [
+          85.932,
+          27.802
+        ],
+        [
+          85.905,
+          27.8
+        ],
+        [
+          85.9,
+          27.825
+        ]
+      ],
+      "marked_by": "Senior Hydrologist (Live GIS Survey)",
+      "marked_date": "2026-10-10T16:00:00Z",
+      "notes": "Natural constriction in canyon creates 6-meter backwater surge whenever sediment volume exceeds 200 m³/s."
+    },
+    {
+      "id": "fp-2",
+      "name": "Langtang Khola Confluence Silt Flat",
+      "river_basin": "Langtang Khola Sub-Basin",
+      "risk_level": "High",
+      "historical_frequency": "Periodic debris floods post-glacial retreat",
+      "elevation_m": 1450,
+      "coordinates": [
+        85.358,
+        28.152
+      ],
+      "radius_m": 1400,
+      "polygon": [
+        [
+          85.345,
+          28.162
+        ],
+        [
+          85.372,
+          28.16
+        ],
+        [
+          85.375,
+          28.14
+        ],
+        [
+          85.348,
+          28.138
+        ],
+        [
+          85.345,
+          28.162
+        ]
+      ],
+      "marked_by": "Emergency Operations Field Team",
+      "marked_date": "2026-10-11T09:30:00Z",
+      "notes": "Unconsolidated moraine deposits upstream subject to sudden damming and breach."
+    },
+    {
+      "id": "fp-1791717086",
+      "name": "Trishuli High Bend",
+      "river_basin": "Trishuli",
+      "risk_level": "Extreme",
+      "historical_frequency": "Monsoon Vulnerable",
+      "elevation_m": 1100.0,
+      "coordinates": [
+        85.3,
+        28.0
+      ],
+      "radius_m": 1200.0,
+      "polygon": [],
+      "marked_by": "Field Analyst",
+      "marked_date": "2026-10-11T11:11:26.094867+00:00",
+      "notes": "Test marking"
+    }
+  ],
+  "sos_reports": [
+    {
+      "id": "SOS-20261011-108",
+      "caller_name": "jhb",
+      "phone": "6598654241",
+      "location_name": "Live Survivor GPS (19.0178, 72.8478)",
+      "latitude": 19.0178,
+      "longitude": 72.8478,
+      "zone_id": null,
+      "trapped_count": 2,
+      "children_count": 0,
+      "elderly_count": 0,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Immediate Air/Boat Extraction",
+        "Drinking Water"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T16:44:09.326908+00:00",
+      "message": "EMERGENCY TRANSMISSION FROM SURVIVOR LIFELINE. Gov ID: 1548. Water depth critical."
+    },
+    {
+      "id": "SOS-20261011-107",
+      "caller_name": "jhb",
+      "phone": "6598654241",
+      "location_name": "Live Survivor GPS (19.0178, 72.8478)",
+      "latitude": 19.0178,
+      "longitude": 72.8478,
+      "zone_id": null,
+      "trapped_count": 2,
+      "children_count": 0,
+      "elderly_count": 0,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Immediate Air/Boat Extraction",
+        "Drinking Water"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T15:16:49.927781+00:00",
+      "message": "EMERGENCY TRANSMISSION FROM SURVIVOR LIFELINE. Gov ID: 1548. Water depth critical."
+    },
+    {
+      "id": "SOS-HELPER-1791731320",
+      "caller_name": "Rohan Deshmukh",
+      "phone": "+91-9820-998877",
+      "location_name": "Direct Alert to Inspector R. Shinde (Police Patrol 14) (Police 4x4 Emergency Cruiser)",
+      "latitude": 19.0178,
+      "longitude": 72.8478,
+      "zone_id": "zone-mum-red-1",
+      "trapped_count": 2,
+      "children_count": 0,
+      "elderly_count": 0,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Direct Helper Assistance",
+        "Rescue Vehicle"
+      ],
+      "status": "DISPATCHED",
+      "dispatched_unit": "Inspector R. Shinde (Police Patrol 14)",
+      "eta_minutes": 8,
+      "timestamp": "2026-10-11T15:08:40.097487+00:00",
+      "message": "Water level rising quickly in Dadar TT underpass."
+    },
+    {
+      "id": "SOS-20261011-105",
+      "caller_name": "ahjd",
+      "phone": "1234567890",
+      "location_name": "jsaheiawheuiwahrljerj2;ierov2q jor jwelk",
+      "latitude": 27.8015,
+      "longitude": 85.908,
+      "zone_id": null,
+      "trapped_count": 4,
+      "children_count": 1,
+      "elderly_count": 3,
+      "medical_emergency": false,
+      "urgency": "High",
+      "needs": [
+        "Raft / Boat Rescue",
+        "Drinking Water"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T12:48:42.235259+00:00",
+      "message": ""
+    },
+    {
+      "id": "SOS-2026-001",
+      "caller_name": "Tsering Joshi",
+      "phone": "+91-9819432880",
+      "location_name": "Gandhi Market, King Circle",
+      "latitude": 19.02431,
+      "longitude": 72.84473,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 10,
+      "children_count": 2,
+      "elderly_count": 2,
+      "medical_emergency": false,
+      "urgency": "High",
+      "needs": [
+        "Helicopter Air-Lift"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T08:31:50.408862+00:00",
+      "message": "Market flooded, 18 shopkeepers stranded on mezzanine"
+    },
+    {
+      "id": "SOS-2026-002",
+      "caller_name": "Rajesh Tamang",
+      "phone": "+91-9863181279",
+      "location_name": "Tatopani Hot Spring Settlement",
+      "latitude": 27.94248,
+      "longitude": 85.95567,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 15,
+      "children_count": 0,
+      "elderly_count": 2,
+      "medical_emergency": false,
+      "urgency": "Low",
+      "needs": [
+        "Emergency Food Rations",
+        "Inflatable Boat",
+        "Insulin / Medicines"
+      ],
+      "status": "RESCUED",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T07:27:50.408862+00:00",
+      "message": "Debris flow from moraine ridge, houses trapped"
+    },
+    {
+      "id": "SOS-2026-003",
+      "caller_name": "Maya Patil",
+      "phone": "+91-9892269043",
+      "location_name": "Syabrubesi River Bank Cluster",
+      "latitude": 28.16084,
+      "longitude": 85.34439,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 7,
+      "children_count": 2,
+      "elderly_count": 3,
+      "medical_emergency": false,
+      "urgency": "Medium",
+      "needs": [
+        "Life Jackets",
+        "Inflatable Boat"
+      ],
+      "status": "RESCUED",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T04:51:50.408862+00:00",
+      "message": "Tributary swell, 12 families on rooftop"
+    },
+    {
+      "id": "SOS-2026-004",
+      "caller_name": "Pooja Deshmukh",
+      "phone": "+91-9847383884",
+      "location_name": "Tatopani Hot Spring Settlement",
+      "latitude": 27.95823,
+      "longitude": 85.95817,
+      "zone_id": "zone-red-1",
+      "trapped_count": 10,
+      "children_count": 2,
+      "elderly_count": 1,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Life Jackets"
+      ],
+      "status": "DISPATCHED",
+      "dispatched_unit": "NDRF Boat Unit 07",
+      "eta_minutes": 11,
+      "timestamp": "2026-10-11T08:13:50.408862+00:00",
+      "message": "Debris flow from moraine ridge, houses trapped"
+    },
+    {
+      "id": "SOS-2026-005",
+      "caller_name": "Sneha Singh",
+      "phone": "+91-9893926493",
+      "location_name": "Sion Circle Low Basin",
+      "latitude": 19.03584,
+      "longitude": 72.87579,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 14,
+      "children_count": 0,
+      "elderly_count": 1,
+      "medical_emergency": false,
+      "urgency": "High",
+      "needs": [
+        "Elderly Wheelchair Evacuation"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T10:14:50.408862+00:00",
+      "message": "Traffic halted, bus stranded with 25 passengers"
+    },
+    {
+      "id": "SOS-2026-006",
+      "caller_name": "Arun Thakur",
+      "phone": "+91-9822401474",
+      "location_name": "Dhunche Downhill Hamlet",
+      "latitude": 28.0969,
+      "longitude": 85.30859,
+      "zone_id": "zone-red-1",
+      "trapped_count": 14,
+      "children_count": 0,
+      "elderly_count": 1,
+      "medical_emergency": false,
+      "urgency": "Critical",
+      "needs": [
+        "Clean Drinking Water"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T06:12:50.408862+00:00",
+      "message": "Culvert washed away, hospital access road blocked"
+    },
+    {
+      "id": "SOS-2026-007",
+      "caller_name": "Vikram Shrestha",
+      "phone": "+91-9866475401",
+      "location_name": "Tatopani Hot Spring Settlement",
+      "latitude": 27.93801,
+      "longitude": 85.94168,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 10,
+      "children_count": 0,
+      "elderly_count": 3,
+      "medical_emergency": false,
+      "urgency": "Medium",
+      "needs": [
+        "Elderly Wheelchair Evacuation",
+        "Helicopter Air-Lift"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T08:07:50.408862+00:00",
+      "message": "Debris flow from moraine ridge, houses trapped"
+    },
+    {
+      "id": "SOS-2026-008",
+      "caller_name": "Sneha Lama",
+      "phone": "+91-9847065732",
+      "location_name": "Bandra East Station Skywalk Area",
+      "latitude": 19.05151,
+      "longitude": 72.84293,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 13,
+      "children_count": 2,
+      "elderly_count": 2,
+      "medical_emergency": false,
+      "urgency": "Medium",
+      "needs": [
+        "Helicopter Air-Lift"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T05:36:50.408862+00:00",
+      "message": "Heavy waterlogging near railway boundary"
+    },
+    {
+      "id": "SOS-2026-009",
+      "caller_name": "Suresh Gupta",
+      "phone": "+91-9883206321",
+      "location_name": "Syabrubesi River Bank Cluster",
+      "latitude": 28.16872,
+      "longitude": 85.3369,
+      "zone_id": "zone-red-1",
+      "trapped_count": 3,
+      "children_count": 0,
+      "elderly_count": 0,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Inflatable Boat",
+        "Emergency Food Rations"
+      ],
+      "status": "DISPATCHED",
+      "dispatched_unit": "NDRF Boat Unit 07",
+      "eta_minutes": 10,
+      "timestamp": "2026-10-11T02:20:50.408862+00:00",
+      "message": "Tributary swell, 12 families on rooftop"
+    },
+    {
+      "id": "SOS-2026-010",
+      "caller_name": "Kavita Shinde",
+      "phone": "+91-9816563805",
+      "location_name": "Gandhi Market, King Circle",
+      "latitude": 19.02649,
+      "longitude": 72.87253,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 13,
+      "children_count": 2,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "Low",
+      "needs": [
+        "Insulin / Medicines",
+        "Clean Drinking Water",
+        "Emergency Food Rations"
+      ],
+      "status": "RESCUED",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T09:34:50.408862+00:00",
+      "message": "Market flooded, 18 shopkeepers stranded on mezzanine"
+    },
+    {
+      "id": "SOS-2026-011",
+      "caller_name": "Kavita Thakur",
+      "phone": "+91-9869189440",
+      "location_name": "Dhunche Downhill Hamlet",
+      "latitude": 28.10248,
+      "longitude": 85.30409,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 1,
+      "children_count": 1,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "High",
+      "needs": [
+        "Helicopter Air-Lift",
+        "Emergency Food Rations",
+        "Clean Drinking Water"
+      ],
+      "status": "DISPATCHED",
+      "dispatched_unit": "Regional Police Quick Response Team",
+      "eta_minutes": 23,
+      "timestamp": "2026-10-11T09:34:50.408862+00:00",
+      "message": "Culvert washed away, hospital access road blocked"
+    },
+    {
+      "id": "SOS-2026-012",
+      "caller_name": "Maya Gurung",
+      "phone": "+91-9818392059",
+      "location_name": "Milan Subway, Santacruz",
+      "latitude": 19.07711,
+      "longitude": 72.82924,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 4,
+      "children_count": 4,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "High",
+      "needs": [
+        "Helicopter Air-Lift"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T07:15:50.408862+00:00",
+      "message": "Subway flooded 3.5m, 2 cars submerged"
+    },
+    {
+      "id": "SOS-2026-013",
+      "caller_name": "Priya Shrestha",
+      "phone": "+91-9872836492",
+      "location_name": "Gandhi Market, King Circle",
+      "latitude": 19.04513,
+      "longitude": 72.86345,
+      "zone_id": "zone-red-1",
+      "trapped_count": 1,
+      "children_count": 0,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "Critical",
+      "needs": [
+        "Emergency Food Rations",
+        "Life Jackets"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T02:25:50.408862+00:00",
+      "message": "Market flooded, 18 shopkeepers stranded on mezzanine"
+    },
+    {
+      "id": "SOS-2026-014",
+      "caller_name": "Bikash Shinde",
+      "phone": "+91-9820086022",
+      "location_name": "Milan Subway, Santacruz",
+      "latitude": 19.0882,
+      "longitude": 72.84486,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 3,
+      "children_count": 3,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "Low",
+      "needs": [
+        "Inflatable Boat",
+        "Elderly Wheelchair Evacuation"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T09:32:50.408862+00:00",
+      "message": "Subway flooded 3.5m, 2 cars submerged"
+    },
+    {
+      "id": "SOS-2026-015",
+      "caller_name": "Suresh Joshi",
+      "phone": "+91-9828209352",
+      "location_name": "Gandhi Market, King Circle",
+      "latitude": 19.02897,
+      "longitude": 72.86887,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 3,
+      "children_count": 1,
+      "elderly_count": 2,
+      "medical_emergency": false,
+      "urgency": "High",
+      "needs": [
+        "Life Jackets",
+        "Emergency Food Rations",
+        "Helicopter Air-Lift"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T03:26:50.408862+00:00",
+      "message": "Market flooded, 18 shopkeepers stranded on mezzanine"
+    },
+    {
+      "id": "SOS-2026-016",
+      "caller_name": "Suresh Deshmukh",
+      "phone": "+91-9850693184",
+      "location_name": "Tatopani Hot Spring Settlement",
+      "latitude": 27.96129,
+      "longitude": 85.96124,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 7,
+      "children_count": 3,
+      "elderly_count": 3,
+      "medical_emergency": false,
+      "urgency": "Medium",
+      "needs": [
+        "Life Jackets"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T09:09:50.408862+00:00",
+      "message": "Debris flow from moraine ridge, houses trapped"
+    },
+    {
+      "id": "SOS-2026-017",
+      "caller_name": "Sneha Sawant",
+      "phone": "+91-9894055021",
+      "location_name": "Kurla Kamani, LBS Marg",
+      "latitude": 19.08647,
+      "longitude": 72.88285,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 5,
+      "children_count": 0,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "Low",
+      "needs": [
+        "Life Jackets"
+      ],
+      "status": "RESCUED",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T11:30:50.408862+00:00",
+      "message": "Mithi river overflowed, ground floor tenements submerged"
+    },
+    {
+      "id": "SOS-2026-018",
+      "caller_name": "Pemba Gurung",
+      "phone": "+91-9853353198",
+      "location_name": "Syabrubesi River Bank Cluster",
+      "latitude": 28.15476,
+      "longitude": 85.34098,
+      "zone_id": "zone-red-1",
+      "trapped_count": 10,
+      "children_count": 1,
+      "elderly_count": 0,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Inflatable Boat",
+        "Insulin / Medicines"
+      ],
+      "status": "DISPATCHED",
+      "dispatched_unit": "SDRF Inflatable Raft 12",
+      "eta_minutes": 18,
+      "timestamp": "2026-10-11T07:05:50.408862+00:00",
+      "message": "Tributary swell, 12 families on rooftop"
+    },
+    {
+      "id": "SOS-2026-019",
+      "caller_name": "Deepak Gupta",
+      "phone": "+91-9828577631",
+      "location_name": "Milan Subway, Santacruz",
+      "latitude": 19.07941,
+      "longitude": 72.83699,
+      "zone_id": "zone-red-1",
+      "trapped_count": 10,
+      "children_count": 4,
+      "elderly_count": 1,
+      "medical_emergency": false,
+      "urgency": "Critical",
+      "needs": [
+        "Emergency Food Rations",
+        "Life Jackets",
+        "Helicopter Air-Lift"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T09:09:50.409862+00:00",
+      "message": "Subway flooded 3.5m, 2 cars submerged"
+    },
+    {
+      "id": "SOS-2026-020",
+      "caller_name": "Tsering Kadam",
+      "phone": "+91-9832690383",
+      "location_name": "Tatopani Hot Spring Settlement",
+      "latitude": 27.95524,
+      "longitude": 85.93443,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 1,
+      "children_count": 1,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "Medium",
+      "needs": [
+        "Insulin / Medicines",
+        "Clean Drinking Water"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T09:12:50.409862+00:00",
+      "message": "Debris flow from moraine ridge, houses trapped"
+    },
+    {
+      "id": "SOS-2026-021",
+      "caller_name": "Manish Patil",
+      "phone": "+91-9813316613",
+      "location_name": "Gandhi Market, King Circle",
+      "latitude": 19.02181,
+      "longitude": 72.86117,
+      "zone_id": "zone-red-1",
+      "trapped_count": 12,
+      "children_count": 3,
+      "elderly_count": 1,
+      "medical_emergency": false,
+      "urgency": "Critical",
+      "needs": [
+        "Life Jackets",
+        "Emergency Food Rations"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T07:07:50.409862+00:00",
+      "message": "Market flooded, 18 shopkeepers stranded on mezzanine"
+    },
+    {
+      "id": "SOS-2026-022",
+      "caller_name": "Sunita Gurung",
+      "phone": "+91-9859349284",
+      "location_name": "Milan Subway, Santacruz",
+      "latitude": 19.09771,
+      "longitude": 72.8396,
+      "zone_id": "zone-red-1",
+      "trapped_count": 4,
+      "children_count": 4,
+      "elderly_count": 0,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Insulin / Medicines"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T10:37:50.409862+00:00",
+      "message": "Subway flooded 3.5m, 2 cars submerged"
+    },
+    {
+      "id": "SOS-2026-023",
+      "caller_name": "Sunita Gupta",
+      "phone": "+91-9815511663",
+      "location_name": "Hindmata Cinema Junction, Dadar",
+      "latitude": 19.01398,
+      "longitude": 72.84842,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 10,
+      "children_count": 4,
+      "elderly_count": 3,
+      "medical_emergency": false,
+      "urgency": "High",
+      "needs": [
+        "Inflatable Boat",
+        "Clean Drinking Water",
+        "Insulin / Medicines"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T02:27:50.409862+00:00",
+      "message": "Low-lying waterlogged depression, water waist deep"
+    },
+    {
+      "id": "SOS-2026-024",
+      "caller_name": "Suresh Gupta",
+      "phone": "+91-9866928265",
+      "location_name": "Dhunche Downhill Hamlet",
+      "latitude": 28.11817,
+      "longitude": 85.30378,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 12,
+      "children_count": 2,
+      "elderly_count": 2,
+      "medical_emergency": false,
+      "urgency": "High",
+      "needs": [
+        "Elderly Wheelchair Evacuation"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T10:29:50.409862+00:00",
+      "message": "Culvert washed away, hospital access road blocked"
+    },
+    {
+      "id": "SOS-2026-025",
+      "caller_name": "Ramesh Gupta",
+      "phone": "+91-9859766348",
+      "location_name": "Bahrabise Sector Old Bridge, Nepal",
+      "latitude": 27.79145,
+      "longitude": 85.91177,
+      "zone_id": "zone-red-1",
+      "trapped_count": 1,
+      "children_count": 0,
+      "elderly_count": 0,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Emergency Food Rations",
+        "Helicopter Air-Lift",
+        "Inflatable Boat"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T01:53:50.409862+00:00",
+      "message": "River gorge flash flood, bridge severed"
+    },
+    {
+      "id": "SOS-2026-026",
+      "caller_name": "Deepak Joshi",
+      "phone": "+91-9821979107",
+      "location_name": "Dhunche Downhill Hamlet",
+      "latitude": 28.11132,
+      "longitude": 85.31079,
+      "zone_id": "zone-red-1",
+      "trapped_count": 15,
+      "children_count": 2,
+      "elderly_count": 0,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Elderly Wheelchair Evacuation",
+        "Inflatable Boat",
+        "Emergency Food Rations"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T10:13:50.409862+00:00",
+      "message": "Culvert washed away, hospital access road blocked"
+    },
+    {
+      "id": "SOS-2026-027",
+      "caller_name": "Neha Shinde",
+      "phone": "+91-9817299446",
+      "location_name": "Bandra East Station Skywalk Area",
+      "latitude": 19.06545,
+      "longitude": 72.85641,
+      "zone_id": "zone-red-1",
+      "trapped_count": 6,
+      "children_count": 0,
+      "elderly_count": 0,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Insulin / Medicines"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T05:55:50.409862+00:00",
+      "message": "Heavy waterlogging near railway boundary"
+    },
+    {
+      "id": "SOS-2026-028",
+      "caller_name": "Sachin Sawant",
+      "phone": "+91-9878580517",
+      "location_name": "Tatopani Hot Spring Settlement",
+      "latitude": 27.95095,
+      "longitude": 85.93509,
+      "zone_id": "zone-red-1",
+      "trapped_count": 15,
+      "children_count": 2,
+      "elderly_count": 1,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Life Jackets",
+        "Inflatable Boat",
+        "Helicopter Air-Lift"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T06:25:50.409862+00:00",
+      "message": "Debris flow from moraine ridge, houses trapped"
+    },
+    {
+      "id": "SOS-2026-029",
+      "caller_name": "Arun Tamang",
+      "phone": "+91-9885795708",
+      "location_name": "Sion Circle Low Basin",
+      "latitude": 19.04308,
+      "longitude": 72.86779,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 9,
+      "children_count": 1,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "High",
+      "needs": [
+        "Insulin / Medicines",
+        "Helicopter Air-Lift",
+        "Inflatable Boat"
+      ],
+      "status": "DISPATCHED",
+      "dispatched_unit": "Coast Guard Chetak ALH-4",
+      "eta_minutes": 17,
+      "timestamp": "2026-10-11T04:09:50.409862+00:00",
+      "message": "Traffic halted, bus stranded with 25 passengers"
+    },
+    {
+      "id": "SOS-2026-030",
+      "caller_name": "Amit Gupta",
+      "phone": "+91-9811877310",
+      "location_name": "Sion Circle Low Basin",
+      "latitude": 19.02631,
+      "longitude": 72.85162,
+      "zone_id": "zone-red-1",
+      "trapped_count": 13,
+      "children_count": 1,
+      "elderly_count": 1,
+      "medical_emergency": false,
+      "urgency": "Critical",
+      "needs": [
+        "Helicopter Air-Lift",
+        "Life Jackets"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T11:47:50.409862+00:00",
+      "message": "Traffic halted, bus stranded with 25 passengers"
+    },
+    {
+      "id": "SOS-2026-031",
+      "caller_name": "Pooja Kadam",
+      "phone": "+91-9816477939",
+      "location_name": "Sion Circle Low Basin",
+      "latitude": 19.03616,
+      "longitude": 72.87072,
+      "zone_id": "zone-red-1",
+      "trapped_count": 13,
+      "children_count": 0,
+      "elderly_count": 2,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Inflatable Boat",
+        "Clean Drinking Water",
+        "Emergency Food Rations"
+      ],
+      "status": "RESCUED",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T07:16:50.409862+00:00",
+      "message": "Traffic halted, bus stranded with 25 passengers"
+    },
+    {
+      "id": "SOS-2026-032",
+      "caller_name": "Anjali Deshmukh",
+      "phone": "+91-9875581891",
+      "location_name": "Tatopani Hot Spring Settlement",
+      "latitude": 27.93778,
+      "longitude": 85.95597,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 12,
+      "children_count": 2,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "Medium",
+      "needs": [
+        "Helicopter Air-Lift",
+        "Insulin / Medicines"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T07:51:50.409862+00:00",
+      "message": "Debris flow from moraine ridge, houses trapped"
+    },
+    {
+      "id": "SOS-2026-033",
+      "caller_name": "Pemba Lama",
+      "phone": "+91-9865008108",
+      "location_name": "Hindmata Cinema Junction, Dadar",
+      "latitude": 19.00449,
+      "longitude": 72.84211,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 2,
+      "children_count": 0,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "Low",
+      "needs": [
+        "Emergency Food Rations"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T09:08:50.409862+00:00",
+      "message": "Low-lying waterlogged depression, water waist deep"
+    },
+    {
+      "id": "SOS-2026-034",
+      "caller_name": "Sachin Shinde",
+      "phone": "+91-9840407595",
+      "location_name": "Gandhi Market, King Circle",
+      "latitude": 19.04419,
+      "longitude": 72.85703,
+      "zone_id": "zone-red-1",
+      "trapped_count": 1,
+      "children_count": 0,
+      "elderly_count": 0,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Life Jackets",
+        "Emergency Food Rations",
+        "Elderly Wheelchair Evacuation"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T02:15:50.409862+00:00",
+      "message": "Market flooded, 18 shopkeepers stranded on mezzanine"
+    },
+    {
+      "id": "SOS-2026-035",
+      "caller_name": "Sachin Joshi",
+      "phone": "+91-9885862269",
+      "location_name": "Bahrabise Sector Old Bridge, Nepal",
+      "latitude": 27.78188,
+      "longitude": 85.91494,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 3,
+      "children_count": 1,
+      "elderly_count": 1,
+      "medical_emergency": false,
+      "urgency": "Medium",
+      "needs": [
+        "Emergency Food Rations"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T12:16:50.409862+00:00",
+      "message": "River gorge flash flood, bridge severed"
+    },
+    {
+      "id": "SOS-2026-036",
+      "caller_name": "Amit Kadam",
+      "phone": "+91-9838368995",
+      "location_name": "Milan Subway, Santacruz",
+      "latitude": 19.09579,
+      "longitude": 72.85521,
+      "zone_id": "zone-red-1",
+      "trapped_count": 6,
+      "children_count": 3,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "Critical",
+      "needs": [
+        "Insulin / Medicines"
+      ],
+      "status": "RESCUED",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T10:57:50.409862+00:00",
+      "message": "Subway flooded 3.5m, 2 cars submerged"
+    },
+    {
+      "id": "SOS-2026-037",
+      "caller_name": "Anjali Singh",
+      "phone": "+91-9853422646",
+      "location_name": "Dhunche Downhill Hamlet",
+      "latitude": 28.09889,
+      "longitude": 85.31443,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 5,
+      "children_count": 4,
+      "elderly_count": 1,
+      "medical_emergency": false,
+      "urgency": "Medium",
+      "needs": [
+        "Clean Drinking Water"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T08:39:50.409862+00:00",
+      "message": "Culvert washed away, hospital access road blocked"
+    },
+    {
+      "id": "SOS-2026-038",
+      "caller_name": "Pemba Shinde",
+      "phone": "+91-9824134296",
+      "location_name": "Hindmata Cinema Junction, Dadar",
+      "latitude": 19.01505,
+      "longitude": 72.85436,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 6,
+      "children_count": 1,
+      "elderly_count": 3,
+      "medical_emergency": false,
+      "urgency": "High",
+      "needs": [
+        "Elderly Wheelchair Evacuation"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T04:21:50.409862+00:00",
+      "message": "Low-lying waterlogged depression, water waist deep"
+    },
+    {
+      "id": "SOS-2026-039",
+      "caller_name": "Suresh Yadav",
+      "phone": "+91-9815098513",
+      "location_name": "Bahrabise Sector Old Bridge, Nepal",
+      "latitude": 27.79053,
+      "longitude": 85.89599,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 7,
+      "children_count": 4,
+      "elderly_count": 1,
+      "medical_emergency": false,
+      "urgency": "Low",
+      "needs": [
+        "Insulin / Medicines"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T04:58:50.409862+00:00",
+      "message": "River gorge flash flood, bridge severed"
+    },
+    {
+      "id": "SOS-2026-040",
+      "caller_name": "Rajesh Shinde",
+      "phone": "+91-9861174495",
+      "location_name": "Bandra East Station Skywalk Area",
+      "latitude": 19.0707,
+      "longitude": 72.84665,
+      "zone_id": "zone-red-1",
+      "trapped_count": 7,
+      "children_count": 0,
+      "elderly_count": 1,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Elderly Wheelchair Evacuation",
+        "Clean Drinking Water",
+        "Insulin / Medicines"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T01:24:50.409862+00:00",
+      "message": "Heavy waterlogging near railway boundary"
+    },
+    {
+      "id": "SOS-2026-041",
+      "caller_name": "Arun Lama",
+      "phone": "+91-9831852089",
+      "location_name": "Hindmata Cinema Junction, Dadar",
+      "latitude": 19.02748,
+      "longitude": 72.83972,
+      "zone_id": "zone-red-1",
+      "trapped_count": 8,
+      "children_count": 3,
+      "elderly_count": 3,
+      "medical_emergency": false,
+      "urgency": "Critical",
+      "needs": [
+        "Clean Drinking Water",
+        "Life Jackets"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T01:58:50.409862+00:00",
+      "message": "Low-lying waterlogged depression, water waist deep"
+    },
+    {
+      "id": "SOS-2026-042",
+      "caller_name": "Sachin Kadam",
+      "phone": "+91-9869475793",
+      "location_name": "Syabrubesi River Bank Cluster",
+      "latitude": 28.16465,
+      "longitude": 85.35667,
+      "zone_id": "zone-red-1",
+      "trapped_count": 1,
+      "children_count": 0,
+      "elderly_count": 0,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Emergency Food Rations",
+        "Life Jackets"
+      ],
+      "status": "DISPATCHED",
+      "dispatched_unit": "SDRF Inflatable Raft 12",
+      "eta_minutes": 20,
+      "timestamp": "2026-10-11T07:08:50.409862+00:00",
+      "message": "Tributary swell, 12 families on rooftop"
+    },
+    {
+      "id": "SOS-2026-043",
+      "caller_name": "Sneha Singh",
+      "phone": "+91-9827849332",
+      "location_name": "Hindmata Cinema Junction, Dadar",
+      "latitude": 19.02433,
+      "longitude": 72.85558,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 12,
+      "children_count": 1,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "Low",
+      "needs": [
+        "Life Jackets",
+        "Inflatable Boat"
+      ],
+      "status": "RESCUED",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T02:34:50.409862+00:00",
+      "message": "Low-lying waterlogged depression, water waist deep"
+    },
+    {
+      "id": "SOS-2026-044",
+      "caller_name": "Maya Gupta",
+      "phone": "+91-9835978916",
+      "location_name": "Syabrubesi River Bank Cluster",
+      "latitude": 28.16168,
+      "longitude": 85.34836,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 14,
+      "children_count": 2,
+      "elderly_count": 3,
+      "medical_emergency": false,
+      "urgency": "Medium",
+      "needs": [
+        "Emergency Food Rations",
+        "Clean Drinking Water"
+      ],
+      "status": "DISPATCHED",
+      "dispatched_unit": "SDRF Inflatable Raft 12",
+      "eta_minutes": 9,
+      "timestamp": "2026-10-11T01:52:50.410386+00:00",
+      "message": "Tributary swell, 12 families on rooftop"
+    },
+    {
+      "id": "SOS-2026-045",
+      "caller_name": "Tsering Gurung",
+      "phone": "+91-9851205670",
+      "location_name": "Kurla Kamani, LBS Marg",
+      "latitude": 19.07262,
+      "longitude": 72.88847,
+      "zone_id": "zone-red-1",
+      "trapped_count": 9,
+      "children_count": 4,
+      "elderly_count": 3,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Life Jackets",
+        "Insulin / Medicines",
+        "Emergency Food Rations"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T05:10:50.410386+00:00",
+      "message": "Mithi river overflowed, ground floor tenements submerged"
+    },
+    {
+      "id": "SOS-2026-046",
+      "caller_name": "Ramesh Joshi",
+      "phone": "+91-9886860086",
+      "location_name": "Bahrabise Sector Old Bridge, Nepal",
+      "latitude": 27.80603,
+      "longitude": 85.91077,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 5,
+      "children_count": 1,
+      "elderly_count": 3,
+      "medical_emergency": false,
+      "urgency": "Medium",
+      "needs": [
+        "Insulin / Medicines",
+        "Inflatable Boat",
+        "Helicopter Air-Lift"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T02:45:50.410386+00:00",
+      "message": "River gorge flash flood, bridge severed"
+    },
+    {
+      "id": "SOS-2026-047",
+      "caller_name": "Priya Shinde",
+      "phone": "+91-9857286354",
+      "location_name": "Syabrubesi River Bank Cluster",
+      "latitude": 28.15823,
+      "longitude": 85.33564,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 7,
+      "children_count": 1,
+      "elderly_count": 2,
+      "medical_emergency": false,
+      "urgency": "Low",
+      "needs": [
+        "Clean Drinking Water",
+        "Helicopter Air-Lift",
+        "Emergency Food Rations"
+      ],
+      "status": "RESCUED",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T04:50:50.410386+00:00",
+      "message": "Tributary swell, 12 families on rooftop"
+    },
+    {
+      "id": "SOS-2026-048",
+      "caller_name": "Pemba Gurung",
+      "phone": "+91-9889167937",
+      "location_name": "Gandhi Market, King Circle",
+      "latitude": 19.03794,
+      "longitude": 72.862,
+      "zone_id": "zone-red-1",
+      "trapped_count": 11,
+      "children_count": 0,
+      "elderly_count": 1,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Clean Drinking Water"
+      ],
+      "status": "RESCUED",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T10:38:50.410386+00:00",
+      "message": "Market flooded, 18 shopkeepers stranded on mezzanine"
+    },
+    {
+      "id": "SOS-2026-049",
+      "caller_name": "Vikram Sawant",
+      "phone": "+91-9849748390",
+      "location_name": "Tatopani Hot Spring Settlement",
+      "latitude": 27.94872,
+      "longitude": 85.94428,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 2,
+      "children_count": 0,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "High",
+      "needs": [
+        "Inflatable Boat",
+        "Emergency Food Rations",
+        "Insulin / Medicines"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T12:29:50.410386+00:00",
+      "message": "Debris flow from moraine ridge, houses trapped"
+    },
+    {
+      "id": "SOS-2026-050",
+      "caller_name": "Pemba Thakur",
+      "phone": "+91-9825482346",
+      "location_name": "Bandra East Station Skywalk Area",
+      "latitude": 19.07429,
+      "longitude": 72.85565,
+      "zone_id": "zone-red-1",
+      "trapped_count": 10,
+      "children_count": 2,
+      "elderly_count": 2,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Emergency Food Rations",
+        "Insulin / Medicines"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T00:48:50.410386+00:00",
+      "message": "Heavy waterlogging near railway boundary"
+    },
+    {
+      "id": "SOS-2026-051",
+      "caller_name": "Anjali Gurung",
+      "phone": "+91-9860322322",
+      "location_name": "Hindmata Cinema Junction, Dadar",
+      "latitude": 19.03116,
+      "longitude": 72.84086,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 14,
+      "children_count": 0,
+      "elderly_count": 2,
+      "medical_emergency": false,
+      "urgency": "Low",
+      "needs": [
+        "Clean Drinking Water",
+        "Emergency Food Rations"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T07:01:50.410386+00:00",
+      "message": "Low-lying waterlogged depression, water waist deep"
+    },
+    {
+      "id": "SOS-2026-052",
+      "caller_name": "Maya Shrestha",
+      "phone": "+91-9884089900",
+      "location_name": "Milan Subway, Santacruz",
+      "latitude": 19.08067,
+      "longitude": 72.83634,
+      "zone_id": "zone-red-1",
+      "trapped_count": 7,
+      "children_count": 4,
+      "elderly_count": 1,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Helicopter Air-Lift",
+        "Emergency Food Rations",
+        "Elderly Wheelchair Evacuation"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T07:50:50.410386+00:00",
+      "message": "Subway flooded 3.5m, 2 cars submerged"
+    },
+    {
+      "id": "SOS-2026-053",
+      "caller_name": "Maya Joshi",
+      "phone": "+91-9861708848",
+      "location_name": "Sion Circle Low Basin",
+      "latitude": 19.0414,
+      "longitude": 72.86647,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 1,
+      "children_count": 0,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "High",
+      "needs": [
+        "Clean Drinking Water"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T06:31:50.410386+00:00",
+      "message": "Traffic halted, bus stranded with 25 passengers"
+    },
+    {
+      "id": "SOS-2026-054",
+      "caller_name": "Manish Gurung",
+      "phone": "+91-9874446903",
+      "location_name": "Milan Subway, Santacruz",
+      "latitude": 19.07424,
+      "longitude": 72.82905,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 4,
+      "children_count": 4,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "High",
+      "needs": [
+        "Clean Drinking Water",
+        "Life Jackets",
+        "Elderly Wheelchair Evacuation"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T05:00:50.410386+00:00",
+      "message": "Subway flooded 3.5m, 2 cars submerged"
+    },
+    {
+      "id": "SOS-2026-055",
+      "caller_name": "Deepak Shrestha",
+      "phone": "+91-9810063979",
+      "location_name": "Dhunche Downhill Hamlet",
+      "latitude": 28.0989,
+      "longitude": 85.30808,
+      "zone_id": "zone-red-1",
+      "trapped_count": 14,
+      "children_count": 4,
+      "elderly_count": 0,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Emergency Food Rations"
+      ],
+      "status": "RESCUED",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T11:00:50.410386+00:00",
+      "message": "Culvert washed away, hospital access road blocked"
+    },
+    {
+      "id": "SOS-2026-056",
+      "caller_name": "Ramesh Shrestha",
+      "phone": "+91-9877468937",
+      "location_name": "Dhunche Downhill Hamlet",
+      "latitude": 28.09328,
+      "longitude": 85.29965,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 8,
+      "children_count": 3,
+      "elderly_count": 2,
+      "medical_emergency": false,
+      "urgency": "Low",
+      "needs": [
+        "Inflatable Boat",
+        "Emergency Food Rations",
+        "Elderly Wheelchair Evacuation"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T07:30:50.410386+00:00",
+      "message": "Culvert washed away, hospital access road blocked"
+    },
+    {
+      "id": "SOS-2026-057",
+      "caller_name": "Anjali Sharma",
+      "phone": "+91-9847521979",
+      "location_name": "Syabrubesi River Bank Cluster",
+      "latitude": 28.14949,
+      "longitude": 85.33769,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 10,
+      "children_count": 4,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "Medium",
+      "needs": [
+        "Inflatable Boat",
+        "Insulin / Medicines"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T01:46:50.410386+00:00",
+      "message": "Tributary swell, 12 families on rooftop"
+    },
+    {
+      "id": "SOS-2026-058",
+      "caller_name": "Maya Shinde",
+      "phone": "+91-9831852715",
+      "location_name": "Sion Circle Low Basin",
+      "latitude": 19.0235,
+      "longitude": 72.85612,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 11,
+      "children_count": 3,
+      "elderly_count": 3,
+      "medical_emergency": false,
+      "urgency": "Medium",
+      "needs": [
+        "Insulin / Medicines",
+        "Helicopter Air-Lift"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T07:45:50.410386+00:00",
+      "message": "Traffic halted, bus stranded with 25 passengers"
+    },
+    {
+      "id": "SOS-2026-059",
+      "caller_name": "Bikash Thakur",
+      "phone": "+91-9853113347",
+      "location_name": "Kurla Kamani, LBS Marg",
+      "latitude": 19.0761,
+      "longitude": 72.89162,
+      "zone_id": "zone-red-1",
+      "trapped_count": 6,
+      "children_count": 4,
+      "elderly_count": 0,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Helicopter Air-Lift"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T07:22:50.410386+00:00",
+      "message": "Mithi river overflowed, ground floor tenements submerged"
+    },
+    {
+      "id": "SOS-2026-060",
+      "caller_name": "Amit Shrestha",
+      "phone": "+91-9843458246",
+      "location_name": "Bandra East Station Skywalk Area",
+      "latitude": 19.07455,
+      "longitude": 72.83815,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 14,
+      "children_count": 3,
+      "elderly_count": 3,
+      "medical_emergency": false,
+      "urgency": "High",
+      "needs": [
+        "Inflatable Boat",
+        "Life Jackets"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T02:41:50.410386+00:00",
+      "message": "Heavy waterlogging near railway boundary"
+    },
+    {
+      "id": "SOS-2026-061",
+      "caller_name": "Neha Gupta",
+      "phone": "+91-9873127922",
+      "location_name": "Bandra East Station Skywalk Area",
+      "latitude": 19.06334,
+      "longitude": 72.84289,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 6,
+      "children_count": 4,
+      "elderly_count": 1,
+      "medical_emergency": false,
+      "urgency": "Medium",
+      "needs": [
+        "Elderly Wheelchair Evacuation"
+      ],
+      "status": "DISPATCHED",
+      "dispatched_unit": "SDRF Inflatable Raft 12",
+      "eta_minutes": 14,
+      "timestamp": "2026-10-11T01:36:50.410386+00:00",
+      "message": "Heavy waterlogging near railway boundary"
+    },
+    {
+      "id": "SOS-2026-062",
+      "caller_name": "Neha Singh",
+      "phone": "+91-9828046445",
+      "location_name": "Dhunche Downhill Hamlet",
+      "latitude": 28.10778,
+      "longitude": 85.32072,
+      "zone_id": "zone-red-1",
+      "trapped_count": 4,
+      "children_count": 4,
+      "elderly_count": 0,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Helicopter Air-Lift",
+        "Insulin / Medicines",
+        "Inflatable Boat"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T10:24:50.410386+00:00",
+      "message": "Culvert washed away, hospital access road blocked"
+    },
+    {
+      "id": "SOS-2026-063",
+      "caller_name": "Neha Joshi",
+      "phone": "+91-9899540356",
+      "location_name": "Kurla Kamani, LBS Marg",
+      "latitude": 19.07782,
+      "longitude": 72.87953,
+      "zone_id": "zone-red-1",
+      "trapped_count": 3,
+      "children_count": 0,
+      "elderly_count": 1,
+      "medical_emergency": false,
+      "urgency": "Critical",
+      "needs": [
+        "Inflatable Boat"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T01:23:50.410386+00:00",
+      "message": "Mithi river overflowed, ground floor tenements submerged"
+    },
+    {
+      "id": "SOS-2026-064",
+      "caller_name": "Suresh Thakur",
+      "phone": "+91-9815494912",
+      "location_name": "Gandhi Market, King Circle",
+      "latitude": 19.03112,
+      "longitude": 72.85335,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 5,
+      "children_count": 4,
+      "elderly_count": 1,
+      "medical_emergency": false,
+      "urgency": "High",
+      "needs": [
+        "Emergency Food Rations",
+        "Elderly Wheelchair Evacuation",
+        "Life Jackets"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T11:58:50.410386+00:00",
+      "message": "Market flooded, 18 shopkeepers stranded on mezzanine"
+    },
+    {
+      "id": "SOS-2026-065",
+      "caller_name": "Deepak Sharma",
+      "phone": "+91-9896326765",
+      "location_name": "Hindmata Cinema Junction, Dadar",
+      "latitude": 19.02172,
+      "longitude": 72.84261,
+      "zone_id": "zone-red-1",
+      "trapped_count": 9,
+      "children_count": 2,
+      "elderly_count": 1,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Clean Drinking Water"
+      ],
+      "status": "DISPATCHED",
+      "dispatched_unit": "Regional Police Quick Response Team",
+      "eta_minutes": 9,
+      "timestamp": "2026-10-11T07:32:50.410386+00:00",
+      "message": "Low-lying waterlogged depression, water waist deep"
+    },
+    {
+      "id": "SOS-2026-066",
+      "caller_name": "Vikram Shinde",
+      "phone": "+91-9897685154",
+      "location_name": "Kurla Kamani, LBS Marg",
+      "latitude": 19.08391,
+      "longitude": 72.86509,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 8,
+      "children_count": 3,
+      "elderly_count": 2,
+      "medical_emergency": false,
+      "urgency": "Medium",
+      "needs": [
+        "Helicopter Air-Lift",
+        "Insulin / Medicines"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T01:18:50.410386+00:00",
+      "message": "Mithi river overflowed, ground floor tenements submerged"
+    },
+    {
+      "id": "SOS-2026-067",
+      "caller_name": "Pooja Sawant",
+      "phone": "+91-9828510486",
+      "location_name": "Dhunche Downhill Hamlet",
+      "latitude": 28.11949,
+      "longitude": 85.29953,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 6,
+      "children_count": 1,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "Medium",
+      "needs": [
+        "Life Jackets",
+        "Insulin / Medicines"
+      ],
+      "status": "RESCUED",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T08:00:50.410386+00:00",
+      "message": "Culvert washed away, hospital access road blocked"
+    },
+    {
+      "id": "SOS-2026-068",
+      "caller_name": "Kavita Thakur",
+      "phone": "+91-9872898357",
+      "location_name": "Bahrabise Sector Old Bridge, Nepal",
+      "latitude": 27.79739,
+      "longitude": 85.89786,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 6,
+      "children_count": 2,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "Medium",
+      "needs": [
+        "Insulin / Medicines"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T11:48:50.410386+00:00",
+      "message": "River gorge flash flood, bridge severed"
+    },
+    {
+      "id": "SOS-2026-069",
+      "caller_name": "Manish Yadav",
+      "phone": "+91-9827913140",
+      "location_name": "Milan Subway, Santacruz",
+      "latitude": 19.08961,
+      "longitude": 72.83079,
+      "zone_id": "zone-red-1",
+      "trapped_count": 4,
+      "children_count": 2,
+      "elderly_count": 1,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Life Jackets",
+        "Emergency Food Rations",
+        "Helicopter Air-Lift"
+      ],
+      "status": "DISPATCHED",
+      "dispatched_unit": "NDRF Boat Unit 07",
+      "eta_minutes": 17,
+      "timestamp": "2026-10-11T06:06:50.410386+00:00",
+      "message": "Subway flooded 3.5m, 2 cars submerged"
+    },
+    {
+      "id": "SOS-2026-070",
+      "caller_name": "Arun Lama",
+      "phone": "+91-9891373473",
+      "location_name": "Hindmata Cinema Junction, Dadar",
+      "latitude": 19.01535,
+      "longitude": 72.84632,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 11,
+      "children_count": 1,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "High",
+      "needs": [
+        "Clean Drinking Water",
+        "Emergency Food Rations"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T04:43:50.410386+00:00",
+      "message": "Low-lying waterlogged depression, water waist deep"
+    },
+    {
+      "id": "SOS-2026-071",
+      "caller_name": "Sunita Sawant",
+      "phone": "+91-9863641775",
+      "location_name": "Tatopani Hot Spring Settlement",
+      "latitude": 27.94926,
+      "longitude": 85.95788,
+      "zone_id": "zone-red-1",
+      "trapped_count": 5,
+      "children_count": 2,
+      "elderly_count": 2,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Elderly Wheelchair Evacuation"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T03:58:50.410386+00:00",
+      "message": "Debris flow from moraine ridge, houses trapped"
+    },
+    {
+      "id": "SOS-2026-072",
+      "caller_name": "Vikram Sawant",
+      "phone": "+91-9894887733",
+      "location_name": "Gandhi Market, King Circle",
+      "latitude": 19.03414,
+      "longitude": 72.86184,
+      "zone_id": "zone-red-1",
+      "trapped_count": 2,
+      "children_count": 1,
+      "elderly_count": 1,
+      "medical_emergency": false,
+      "urgency": "Critical",
+      "needs": [
+        "Inflatable Boat",
+        "Clean Drinking Water",
+        "Emergency Food Rations"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T02:11:50.410934+00:00",
+      "message": "Market flooded, 18 shopkeepers stranded on mezzanine"
+    },
+    {
+      "id": "SOS-2026-073",
+      "caller_name": "Pooja Lama",
+      "phone": "+91-9846207597",
+      "location_name": "Dhunche Downhill Hamlet",
+      "latitude": 28.09444,
+      "longitude": 85.31209,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 5,
+      "children_count": 2,
+      "elderly_count": 1,
+      "medical_emergency": false,
+      "urgency": "Medium",
+      "needs": [
+        "Inflatable Boat"
+      ],
+      "status": "RESCUED",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T10:08:50.410934+00:00",
+      "message": "Culvert washed away, hospital access road blocked"
+    },
+    {
+      "id": "SOS-2026-074",
+      "caller_name": "Anjali Joshi",
+      "phone": "+91-9824980686",
+      "location_name": "Gandhi Market, King Circle",
+      "latitude": 19.02264,
+      "longitude": 72.87195,
+      "zone_id": "zone-red-1",
+      "trapped_count": 13,
+      "children_count": 3,
+      "elderly_count": 2,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Insulin / Medicines",
+        "Helicopter Air-Lift"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T04:26:50.410934+00:00",
+      "message": "Market flooded, 18 shopkeepers stranded on mezzanine"
+    },
+    {
+      "id": "SOS-2026-075",
+      "caller_name": "Amit Thakur",
+      "phone": "+91-9883878918",
+      "location_name": "Bandra East Station Skywalk Area",
+      "latitude": 19.06908,
+      "longitude": 72.84867,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 2,
+      "children_count": 2,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "High",
+      "needs": [
+        "Life Jackets",
+        "Clean Drinking Water",
+        "Helicopter Air-Lift"
+      ],
+      "status": "RESCUED",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T02:42:50.410934+00:00",
+      "message": "Heavy waterlogging near railway boundary"
+    },
+    {
+      "id": "SOS-2026-076",
+      "caller_name": "Rajesh Tamang",
+      "phone": "+91-9885089412",
+      "location_name": "Syabrubesi River Bank Cluster",
+      "latitude": 28.16737,
+      "longitude": 85.34409,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 11,
+      "children_count": 2,
+      "elderly_count": 2,
+      "medical_emergency": false,
+      "urgency": "High",
+      "needs": [
+        "Life Jackets",
+        "Inflatable Boat",
+        "Helicopter Air-Lift"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T12:18:50.410934+00:00",
+      "message": "Tributary swell, 12 families on rooftop"
+    },
+    {
+      "id": "SOS-2026-077",
+      "caller_name": "Tsering Singh",
+      "phone": "+91-9883126981",
+      "location_name": "Sion Circle Low Basin",
+      "latitude": 19.04652,
+      "longitude": 72.8712,
+      "zone_id": "zone-red-1",
+      "trapped_count": 12,
+      "children_count": 0,
+      "elderly_count": 1,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Inflatable Boat"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T02:09:50.410934+00:00",
+      "message": "Traffic halted, bus stranded with 25 passengers"
+    },
+    {
+      "id": "SOS-2026-078",
+      "caller_name": "Amit Lama",
+      "phone": "+91-9839472225",
+      "location_name": "Syabrubesi River Bank Cluster",
+      "latitude": 28.17623,
+      "longitude": 85.34952,
+      "zone_id": "zone-red-1",
+      "trapped_count": 10,
+      "children_count": 2,
+      "elderly_count": 3,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Life Jackets"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T01:14:50.410934+00:00",
+      "message": "Tributary swell, 12 families on rooftop"
+    },
+    {
+      "id": "SOS-2026-079",
+      "caller_name": "Tsering Yadav",
+      "phone": "+91-9849179328",
+      "location_name": "Bahrabise Sector Old Bridge, Nepal",
+      "latitude": 27.79487,
+      "longitude": 85.89483,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 11,
+      "children_count": 4,
+      "elderly_count": 3,
+      "medical_emergency": false,
+      "urgency": "Medium",
+      "needs": [
+        "Helicopter Air-Lift"
+      ],
+      "status": "RESCUED",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T10:25:50.410934+00:00",
+      "message": "River gorge flash flood, bridge severed"
+    },
+    {
+      "id": "SOS-2026-080",
+      "caller_name": "Deepak Sawant",
+      "phone": "+91-9850057511",
+      "location_name": "Gandhi Market, King Circle",
+      "latitude": 19.04578,
+      "longitude": 72.85715,
+      "zone_id": "zone-red-1",
+      "trapped_count": 12,
+      "children_count": 4,
+      "elderly_count": 1,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Clean Drinking Water"
+      ],
+      "status": "RESCUED",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T05:05:50.410934+00:00",
+      "message": "Market flooded, 18 shopkeepers stranded on mezzanine"
+    },
+    {
+      "id": "SOS-2026-081",
+      "caller_name": "Kavita Gurung",
+      "phone": "+91-9840004507",
+      "location_name": "Bandra East Station Skywalk Area",
+      "latitude": 19.06994,
+      "longitude": 72.86027,
+      "zone_id": "zone-red-1",
+      "trapped_count": 9,
+      "children_count": 4,
+      "elderly_count": 2,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Inflatable Boat",
+        "Emergency Food Rations"
+      ],
+      "status": "RESCUED",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T05:17:50.410934+00:00",
+      "message": "Heavy waterlogging near railway boundary"
+    },
+    {
+      "id": "SOS-2026-082",
+      "caller_name": "Pemba Joshi",
+      "phone": "+91-9895368018",
+      "location_name": "Kurla Kamani, LBS Marg",
+      "latitude": 19.07506,
+      "longitude": 72.86869,
+      "zone_id": "zone-red-1",
+      "trapped_count": 3,
+      "children_count": 1,
+      "elderly_count": 2,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Life Jackets",
+        "Inflatable Boat"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T11:11:50.410934+00:00",
+      "message": "Mithi river overflowed, ground floor tenements submerged"
+    },
+    {
+      "id": "SOS-2026-083",
+      "caller_name": "Arun Tamang",
+      "phone": "+91-9823607988",
+      "location_name": "Tatopani Hot Spring Settlement",
+      "latitude": 27.9506,
+      "longitude": 85.93179,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 1,
+      "children_count": 1,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "High",
+      "needs": [
+        "Insulin / Medicines"
+      ],
+      "status": "DISPATCHED",
+      "dispatched_unit": "SDRF Inflatable Raft 12",
+      "eta_minutes": 22,
+      "timestamp": "2026-10-11T02:35:50.410934+00:00",
+      "message": "Debris flow from moraine ridge, houses trapped"
+    },
+    {
+      "id": "SOS-2026-084",
+      "caller_name": "Pooja Yadav",
+      "phone": "+91-9871345653",
+      "location_name": "Syabrubesi River Bank Cluster",
+      "latitude": 28.16183,
+      "longitude": 85.35309,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 11,
+      "children_count": 3,
+      "elderly_count": 1,
+      "medical_emergency": false,
+      "urgency": "Low",
+      "needs": [
+        "Life Jackets",
+        "Elderly Wheelchair Evacuation",
+        "Insulin / Medicines"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T04:23:50.410934+00:00",
+      "message": "Tributary swell, 12 families on rooftop"
+    },
+    {
+      "id": "SOS-2026-085",
+      "caller_name": "Sunita Patil",
+      "phone": "+91-9858419165",
+      "location_name": "Gandhi Market, King Circle",
+      "latitude": 19.04296,
+      "longitude": 72.85465,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 4,
+      "children_count": 1,
+      "elderly_count": 1,
+      "medical_emergency": false,
+      "urgency": "High",
+      "needs": [
+        "Life Jackets",
+        "Elderly Wheelchair Evacuation",
+        "Insulin / Medicines"
+      ],
+      "status": "DISPATCHED",
+      "dispatched_unit": "SDRF Inflatable Raft 12",
+      "eta_minutes": 22,
+      "timestamp": "2026-10-11T07:21:50.410934+00:00",
+      "message": "Market flooded, 18 shopkeepers stranded on mezzanine"
+    },
+    {
+      "id": "SOS-2026-086",
+      "caller_name": "Sachin Singh",
+      "phone": "+91-9884031377",
+      "location_name": "Sion Circle Low Basin",
+      "latitude": 19.03365,
+      "longitude": 72.86629,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 10,
+      "children_count": 1,
+      "elderly_count": 2,
+      "medical_emergency": false,
+      "urgency": "Medium",
+      "needs": [
+        "Inflatable Boat"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T10:17:50.410934+00:00",
+      "message": "Traffic halted, bus stranded with 25 passengers"
+    },
+    {
+      "id": "SOS-2026-087",
+      "caller_name": "Tsering Gurung",
+      "phone": "+91-9851298836",
+      "location_name": "Sion Circle Low Basin",
+      "latitude": 19.04096,
+      "longitude": 72.87532,
+      "zone_id": "zone-red-1",
+      "trapped_count": 6,
+      "children_count": 2,
+      "elderly_count": 1,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Emergency Food Rations",
+        "Life Jackets",
+        "Elderly Wheelchair Evacuation"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T11:26:50.410934+00:00",
+      "message": "Traffic halted, bus stranded with 25 passengers"
+    },
+    {
+      "id": "SOS-2026-088",
+      "caller_name": "Pooja Shrestha",
+      "phone": "+91-9892766008",
+      "location_name": "Hindmata Cinema Junction, Dadar",
+      "latitude": 19.02018,
+      "longitude": 72.85039,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 2,
+      "children_count": 1,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "Low",
+      "needs": [
+        "Inflatable Boat"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T10:24:50.410934+00:00",
+      "message": "Low-lying waterlogged depression, water waist deep"
+    },
+    {
+      "id": "SOS-2026-089",
+      "caller_name": "Bikash Singh",
+      "phone": "+91-9878380538",
+      "location_name": "Gandhi Market, King Circle",
+      "latitude": 19.03141,
+      "longitude": 72.86572,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 12,
+      "children_count": 1,
+      "elderly_count": 3,
+      "medical_emergency": false,
+      "urgency": "Low",
+      "needs": [
+        "Clean Drinking Water"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T07:25:50.410934+00:00",
+      "message": "Market flooded, 18 shopkeepers stranded on mezzanine"
+    },
+    {
+      "id": "SOS-2026-090",
+      "caller_name": "Rajesh Patil",
+      "phone": "+91-9846559924",
+      "location_name": "Syabrubesi River Bank Cluster",
+      "latitude": 28.17226,
+      "longitude": 85.34865,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 2,
+      "children_count": 1,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "Medium",
+      "needs": [
+        "Insulin / Medicines"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T06:39:50.410934+00:00",
+      "message": "Tributary swell, 12 families on rooftop"
+    },
+    {
+      "id": "SOS-2026-091",
+      "caller_name": "Neha Singh",
+      "phone": "+91-9898086069",
+      "location_name": "Kurla Kamani, LBS Marg",
+      "latitude": 19.07907,
+      "longitude": 72.87139,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 5,
+      "children_count": 0,
+      "elderly_count": 3,
+      "medical_emergency": false,
+      "urgency": "Medium",
+      "needs": [
+        "Life Jackets",
+        "Helicopter Air-Lift"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T03:26:50.410934+00:00",
+      "message": "Mithi river overflowed, ground floor tenements submerged"
+    },
+    {
+      "id": "SOS-2026-092",
+      "caller_name": "Vikram Kadam",
+      "phone": "+91-9816262586",
+      "location_name": "Bandra East Station Skywalk Area",
+      "latitude": 19.06464,
+      "longitude": 72.84558,
+      "zone_id": "zone-red-1",
+      "trapped_count": 7,
+      "children_count": 3,
+      "elderly_count": 1,
+      "medical_emergency": false,
+      "urgency": "Critical",
+      "needs": [
+        "Insulin / Medicines",
+        "Elderly Wheelchair Evacuation",
+        "Inflatable Boat"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T09:16:50.410934+00:00",
+      "message": "Heavy waterlogging near railway boundary"
+    },
+    {
+      "id": "SOS-2026-093",
+      "caller_name": "Sneha Shinde",
+      "phone": "+91-9872784166",
+      "location_name": "Milan Subway, Santacruz",
+      "latitude": 19.08271,
+      "longitude": 72.83212,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 15,
+      "children_count": 2,
+      "elderly_count": 3,
+      "medical_emergency": false,
+      "urgency": "Medium",
+      "needs": [
+        "Emergency Food Rations",
+        "Helicopter Air-Lift",
+        "Elderly Wheelchair Evacuation"
+      ],
+      "status": "RESCUED",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T11:25:50.410934+00:00",
+      "message": "Subway flooded 3.5m, 2 cars submerged"
+    },
+    {
+      "id": "SOS-2026-094",
+      "caller_name": "Pemba Thakur",
+      "phone": "+91-9810417820",
+      "location_name": "Dhunche Downhill Hamlet",
+      "latitude": 28.11259,
+      "longitude": 85.30083,
+      "zone_id": "zone-red-1",
+      "trapped_count": 9,
+      "children_count": 3,
+      "elderly_count": 2,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Inflatable Boat"
+      ],
+      "status": "RESCUED",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T06:48:50.410934+00:00",
+      "message": "Culvert washed away, hospital access road blocked"
+    },
+    {
+      "id": "SOS-2026-095",
+      "caller_name": "Sunita Tamang",
+      "phone": "+91-9874277759",
+      "location_name": "Kurla Kamani, LBS Marg",
+      "latitude": 19.07998,
+      "longitude": 72.87497,
+      "zone_id": "zone-red-1",
+      "trapped_count": 5,
+      "children_count": 2,
+      "elderly_count": 3,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Inflatable Boat",
+        "Helicopter Air-Lift"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T01:34:50.410934+00:00",
+      "message": "Mithi river overflowed, ground floor tenements submerged"
+    },
+    {
+      "id": "SOS-2026-096",
+      "caller_name": "Sachin Gurung",
+      "phone": "+91-9889651273",
+      "location_name": "Dhunche Downhill Hamlet",
+      "latitude": 28.09715,
+      "longitude": 85.30937,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 13,
+      "children_count": 1,
+      "elderly_count": 2,
+      "medical_emergency": false,
+      "urgency": "Medium",
+      "needs": [
+        "Clean Drinking Water"
+      ],
+      "status": "RESCUED",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T10:06:50.410934+00:00",
+      "message": "Culvert washed away, hospital access road blocked"
+    },
+    {
+      "id": "SOS-2026-097",
+      "caller_name": "Sunita Kadam",
+      "phone": "+91-9858292513",
+      "location_name": "Kurla Kamani, LBS Marg",
+      "latitude": 19.06342,
+      "longitude": 72.87719,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 1,
+      "children_count": 0,
+      "elderly_count": 1,
+      "medical_emergency": false,
+      "urgency": "Medium",
+      "needs": [
+        "Helicopter Air-Lift",
+        "Insulin / Medicines"
+      ],
+      "status": "RESCUED",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T02:45:50.410934+00:00",
+      "message": "Mithi river overflowed, ground floor tenements submerged"
+    },
+    {
+      "id": "SOS-2026-098",
+      "caller_name": "Pemba Gupta",
+      "phone": "+91-9838697653",
+      "location_name": "Bandra East Station Skywalk Area",
+      "latitude": 19.04937,
+      "longitude": 72.84704,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 6,
+      "children_count": 3,
+      "elderly_count": 1,
+      "medical_emergency": false,
+      "urgency": "High",
+      "needs": [
+        "Emergency Food Rations",
+        "Insulin / Medicines",
+        "Helicopter Air-Lift"
+      ],
+      "status": "RESCUED",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T01:37:50.410934+00:00",
+      "message": "Heavy waterlogging near railway boundary"
+    },
+    {
+      "id": "SOS-2026-099",
+      "caller_name": "Pooja Gurung",
+      "phone": "+91-9825199181",
+      "location_name": "Gandhi Market, King Circle",
+      "latitude": 19.02861,
+      "longitude": 72.87206,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 8,
+      "children_count": 1,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "Low",
+      "needs": [
+        "Clean Drinking Water"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T09:27:50.410934+00:00",
+      "message": "Market flooded, 18 shopkeepers stranded on mezzanine"
+    },
+    {
+      "id": "SOS-2026-100",
+      "caller_name": "Priya Thakur",
+      "phone": "+91-9883613703",
+      "location_name": "Milan Subway, Santacruz",
+      "latitude": 19.08036,
+      "longitude": 72.8547,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 13,
+      "children_count": 1,
+      "elderly_count": 1,
+      "medical_emergency": false,
+      "urgency": "High",
+      "needs": [
+        "Helicopter Air-Lift",
+        "Insulin / Medicines",
+        "Inflatable Boat"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T11:30:50.410934+00:00",
+      "message": "Subway flooded 3.5m, 2 cars submerged"
+    },
+    {
+      "id": "SOS-2026-101",
+      "caller_name": "Deepak Kadam",
+      "phone": "+91-9871878505",
+      "location_name": "Tatopani Hot Spring Settlement",
+      "latitude": 27.93862,
+      "longitude": 85.95497,
+      "zone_id": "zone-red-1",
+      "trapped_count": 14,
+      "children_count": 1,
+      "elderly_count": 1,
+      "medical_emergency": true,
+      "urgency": "Critical",
+      "needs": [
+        "Helicopter Air-Lift",
+        "Insulin / Medicines",
+        "Elderly Wheelchair Evacuation"
+      ],
+      "status": "RESCUED",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T12:34:50.410934+00:00",
+      "message": "Debris flow from moraine ridge, houses trapped"
+    },
+    {
+      "id": "SOS-2026-102",
+      "caller_name": "Sachin Kadam",
+      "phone": "+91-9876922508",
+      "location_name": "Hindmata Cinema Junction, Dadar",
+      "latitude": 19.0289,
+      "longitude": 72.85099,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 12,
+      "children_count": 2,
+      "elderly_count": 3,
+      "medical_emergency": false,
+      "urgency": "Medium",
+      "needs": [
+        "Life Jackets"
+      ],
+      "status": "RESCUED",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T08:34:50.410934+00:00",
+      "message": "Low-lying waterlogged depression, water waist deep"
+    },
+    {
+      "id": "SOS-2026-103",
+      "caller_name": "Priya Sharma",
+      "phone": "+91-9883572296",
+      "location_name": "Tatopani Hot Spring Settlement",
+      "latitude": 27.95035,
+      "longitude": 85.95187,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 14,
+      "children_count": 2,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "Low",
+      "needs": [
+        "Clean Drinking Water"
+      ],
+      "status": "PENDING",
+      "dispatched_unit": null,
+      "eta_minutes": null,
+      "timestamp": "2026-10-11T09:47:50.410934+00:00",
+      "message": "Debris flow from moraine ridge, houses trapped"
+    },
+    {
+      "id": "SOS-2026-104",
+      "caller_name": "Tsering Deshmukh",
+      "phone": "+91-9886011815",
+      "location_name": "Syabrubesi River Bank Cluster",
+      "latitude": 28.1491,
+      "longitude": 85.33075,
+      "zone_id": "zone-orange-1",
+      "trapped_count": 3,
+      "children_count": 2,
+      "elderly_count": 0,
+      "medical_emergency": false,
+      "urgency": "Low",
+      "needs": [
+        "Clean Drinking Water"
+      ],
+      "status": "DISPATCHED",
+      "dispatched_unit": "NDRF Boat Unit 07",
+      "eta_minutes": 17,
+      "timestamp": "2026-10-11T07:20:50.410934+00:00",
+      "message": "Tributary swell, 12 families on rooftop"
+    }
+  ],
+  "preferences": {
+    "remember_filters": true,
+    "saved_filters": {
+      "show_green": true,
+      "show_yellow": true,
+      "show_orange": true,
+      "show_red": true,
+      "show_flood_prone": true,
+      "show_15day_locked_only": true,
+      "search_query": ""
+    },
+    "last_saved": "2026-10-11T12:49:59.248700+00:00"
+  },
+  "emergency_contacts": [
+    {
+      "id": "contact-heli-1",
+      "category": "HELICOPTER",
+      "title": "Disaster Air-Lift Helicopter Wing (ALH / Mi-17)",
+      "department": "Joint Air Force & Coast Guard Aviation Sqn",
+      "helipad_location": "Santacruz Air Base / Juhu Helipad",
+      "frequency_vhf": "123.45 MHz (Disaster Command Channel)",
+      "hotline": "+91-22-2615-9999",
+      "commander": "Wing Commander R. Malhotra",
+      "available_choppers": 4,
+      "payload_capacity": "12 Winch Rescue / Flight",
+      "dispatch_status": "DISPATCHED ON MISSION: Central Inundation Sector",
+      "last_dispatch": {
+        "timestamp": "2026-10-12T11:37:57.986755+00:00",
+        "incident_id": "COMMAND-DIRECT-ORDER",
+        "target": "Central Inundation Sector",
+        "notes": "Priority emergency dispatch logged by Officer in Charge."
+      }
+    },
+    {
+      "id": "contact-cops-1",
+      "category": "POLICE",
+      "title": "Central Police Command & Control (Dial 112)",
+      "department": "State Police Disaster Coordination HQ",
+      "location": "Police Headquarters, Worli Sector",
+      "frequency_vhf": "155.80 MHz",
+      "hotline": "112 / +91-22-2262-1111",
+      "commander": "DCP K. Deshpande (Law & Order)",
+      "available_patrols": 48,
+      "dispatch_status": "DISPATCHED ON MISSION: Central Inundation Sector",
+      "last_dispatch": {
+        "timestamp": "2026-10-11T12:57:21.746610+00:00",
+        "incident_id": "COMMAND-DIRECT-ORDER",
+        "target": "Central Inundation Sector",
+        "notes": "Priority emergency dispatch logged by Officer in Charge."
+      }
+    },
+    {
+      "id": "contact-police-reg-1",
+      "category": "REGIONAL_POLICE",
+      "title": "Regional Traffic & Sector Police HQ",
+      "department": "Zone-4 Traffic Management Cell",
+      "location": "Sion - Dadar - Kurla Corridor",
+      "frequency_vhf": "156.25 MHz",
+      "hotline": "+91-22-2401-4444",
+      "commander": "ACP Sunil Patil",
+      "available_patrols": 26,
+      "dispatch_status": "DISPATCHED ON MISSION: Central Inundation Sector",
+      "last_dispatch": {
+        "timestamp": "2026-10-12T11:37:52.985129+00:00",
+        "incident_id": "COMMAND-DIRECT-ORDER",
+        "target": "Central Inundation Sector",
+        "notes": "Priority emergency dispatch logged by Officer in Charge."
+      }
+    },
+    {
+      "id": "contact-ndrf-1",
+      "category": "NDRF",
+      "title": "NDRF 5th Battalion Disaster Inflatable Boat Unit",
+      "department": "National Disaster Response Force",
+      "location": "Kurla Regional Base Camp",
+      "frequency_vhf": "144.50 MHz",
+      "hotline": "+91-22-2503-8888",
+      "commander": "Commandant V. K. Yadav",
+      "available_boats": 18,
+      "dispatch_status": "RESCUE BOATS ACTIVE IN MITHI RIVER",
+      "last_dispatch": null
+    }
+  ],
+  "nearby_helpers": [
+    {
+      "id": "helper-1",
+      "name": "Inspector R. Shinde (Police Patrol 14)",
+      "type": "POLICE",
+      "vehicle": "Police 4x4 Emergency Cruiser",
+      "phone": "+91-9820-112233",
+      "latitude": 19.0195,
+      "longitude": 72.8465,
+      "status": "ACTIVE ON SCENE",
+      "equipment": [
+        "Tow Ropes",
+        "First Aid Kit",
+        "Loudspeaker",
+        "Life Buoys"
+      ]
+    },
+    {
+      "id": "helper-2",
+      "name": "Subedar Bikram Yadav (NDRF Boat Crew)",
+      "type": "NDRF",
+      "vehicle": "Inflatable Motor Raft Gemini-2",
+      "phone": "+91-9819-445566",
+      "latitude": 19.0735,
+      "longitude": 72.878,
+      "status": "ACTIVE ON WATER",
+      "equipment": [
+        "Life Jackets (15)",
+        "Stretcher",
+        "Dry Food Rations",
+        "Satellite Radio"
+      ]
+    },
+    {
+      "id": "helper-3",
+      "name": "Dr. Priya Merchant (Mobile Medical Unit)",
+      "type": "MEDICAL",
+      "vehicle": "Disaster Advanced Cardiac Ambulance",
+      "phone": "+91-9833-778899",
+      "latitude": 19.036,
+      "longitude": 72.858,
+      "status": "STATIONED AT HIGHWAY FLYOVER",
+      "equipment": [
+        "Oxygen Cylinders",
+        "IV Fluids",
+        "Insulin",
+        "Trauma Kit"
+      ]
+    },
+    {
+      "id": "helper-4",
+      "name": "Ganesh Kadam (Community Flood Volunteer Team)",
+      "type": "VOLUNTEER",
+      "vehicle": "High-Clearance Tractor & Ropes",
+      "phone": "+91-9892-334455",
+      "latitude": 19.0825,
+      "longitude": 72.843,
+      "status": "EVACUATING RESIDENTS FROM MILAN SUBWAY",
+      "equipment": [
+        "Nylon Climbing Ropes",
+        "Ladders",
+        "Emergency Drinking Water Pouches"
+      ]
+    },
+    {
+      "id": "helper-5",
+      "name": "Pasang Lama (Himalayan Swiftwater Rescue)",
+      "type": "RESCUE",
+      "vehicle": "Mountain Heavy Rescue Truck",
+      "phone": "+977-9841-889900",
+      "latitude": 27.795,
+      "longitude": 85.902,
+      "status": "STATIONED AT BAHRABISE APEX",
+      "equipment": [
+        "Heavy Winch",
+        "High-Angle Ropes",
+        "Sat-Phone"
+      ]
+    }
+  ],
+  "survivor_profiles": [
+    {
+      "full_name": "Rohan Deshmukh",
+      "phone": "+91-9820-998877",
+      "gov_id_type": "Aadhaar Card",
+      "gov_id_number": "9944 8822 1100",
+      "emergency_contact_name": "Sunita Deshmukh",
+      "emergency_contact_phone": "+91-9820-112233",
+      "latitude": 19.0178,
+      "longitude": 72.8478,
+      "location_sharing_enabled": true,
+      "kyc_verified": true,
+      "verified_at": "2026-10-11T15:08:40.076866+00:00"
+    },
+    {
+      "full_name": "jhb",
+      "phone": "6598654241",
+      "gov_id_type": "Aadhaar Card",
+      "gov_id_number": "1548",
+      "emergency_contact_name": "jhgjk",
+      "emergency_contact_phone": "5645123345",
+      "latitude": 19.0178,
+      "longitude": 72.8478,
+      "location_sharing_enabled": true,
+      "kyc_verified": true,
+      "verified_at": "2026-10-11T15:10:36.781619+00:00"
+    },
+    {
+      "full_name": "l;dsfj",
+      "phone": "1234567890",
+      "gov_id_type": "Aadhaar Card",
+      "gov_id_number": "154",
+      "emergency_contact_name": "h wuiefh",
+      "emergency_contact_phone": "12164218789",
+      "latitude": 19.0178,
+      "longitude": 72.8478,
+      "location_sharing_enabled": true,
+      "kyc_verified": true,
+      "verified_at": "2026-10-11T16:42:26.916044+00:00"
+    }
+  ]
+}
