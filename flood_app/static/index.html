@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AegisFlood — Autonomous Space & Ground Disaster System</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Leaflet Map Engine (Zero API Key Required) -->
+  <link rel="stylesheet" href="/static/vendor/leaflet.css" />
+  <script src="/static/vendor/leaflet.js"></script>
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="/static/style.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            safe: '#10b981',
+            nearby: '#f59e0b',
+            unsafe: '#f97316',
+            flooded: '#ef4444',
+            darknavy: '#0b1120'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#0b1120] text-slate-100 flex flex-col h-screen w-screen overflow-hidden">
+
+  <!-- ================= TOP NAVIGATION BAR ================= -->
+  <header class="h-16 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 px-4 flex items-center justify-between z-20 shrink-0 shadow-lg">
+    <div class="flex items-center space-x-3">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-cyan-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/25">
+        <i class="fa-solid fa-satellite-dish text-white text-lg animate-pulse"></i>
+      </div>
+      <div>
+        <div class="flex items-center space-x-2">
+          <h1 class="font-bold text-lg text-white tracking-wide">AegisFlood</h1>
+          <span class="px-2 py-0.5 text-xs font-semibold rounded bg-cyan-950 text-cyan-400 border border-cyan-800">Space & Ground AI</span>
+          <span class="px-2 py-0.5 text-xs font-semibold rounded bg-red-950 text-red-400 border border-red-800 flex items-center gap-1">
+            <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span> Live Incident Feed
+          </span>
+        </div>
+        <p class="text-[11px] text-slate-400">Bhote Koshi – Trishuli River Corridor & Multi-Zone Hazard Response</p>
+      </div>
+    </div>
+
+    <!-- 4 MAP SELECTOR (Requirement 9) -->
+    <div class="flex items-center bg-slate-950/80 p-1 rounded-xl border border-slate-800 shadow-inner">
+      <button id="btn-map-zone" onclick="switchMapMode('zone')" class="px-3 py-1.5 rounded-lg text-xs font-medium transition flex items-center gap-1.5 bg-blue-600 text-white shadow">
+        <i class="fa-solid fa-layer-group"></i> 1. Zone Map
+      </button>
+      <button id="btn-map-realistic" onclick="switchMapMode('realistic')" class="px-3 py-1.5 rounded-lg text-xs font-medium transition flex items-center gap-1.5 text-slate-400 hover:text-white">
+        <i class="fa-solid fa-map"></i> 2. Realistic Map
+      </button>
+      <button id="btn-map-3d" onclick="switchMapMode('3d')" class="px-3 py-1.5 rounded-lg text-xs font-medium transition flex items-center gap-1.5 text-slate-400 hover:text-white">
+        <i class="fa-solid fa-cube"></i> 3. 3D Map
+      </button>
+      <button id="btn-map-satellite" onclick="switchMapMode('satellite')" class="px-3 py-1.5 rounded-lg text-xs font-medium transition flex items-center gap-1.5 text-slate-400 hover:text-white">
+        <i class="fa-solid fa-earth-americas"></i> 4. Satellite Image
+      </button>
+      <button onclick="focusAllZones()" class="px-2.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1 bg-slate-800 text-cyan-400 border border-cyan-800/60 hover:bg-slate-700 ml-1">
+        <i class="fa-solid fa-expand text-xs"></i> Focus All Zones
+      </button>
+    </div>
+
+    <!-- ACTION BUTTONS: SOS, Mark Flood-Prone, 15-Day Watchlist -->
+    <div class="flex items-center space-x-2">
+      <!-- Mark Flood Prone (Req 5) -->
+      <button onclick="toggleMarkingTool()" id="btn-mark-mode" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/40 hover:bg-amber-500/30 transition flex items-center gap-1.5">
+        <i class="fa-solid fa-draw-polygon"></i>
+        <span>Mark Flood-Prone Area</span>
+      </button>
+
+      <!-- 15-Day Lock Watchlist Quick Access (Req 6) -->
+      <button onclick="toggleWatchlistDrawer()" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-red-950/60 text-red-300 border border-red-800/80 hover:bg-red-900/60 transition flex items-center gap-1.5 shadow">
+        <i class="fa-solid fa-shield-halved text-red-400"></i>
+        <span>15-Day Lock Watch (<span id="locked-badge-count">2</span>)</span>
+      </button>
+
+      <!-- SOS Emergency Button (Req 7) -->
+      <button onclick="openSOSModal()" class="px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-red-600 to-rose-700 text-white shadow-lg shadow-red-600/30 hover:brightness-110 active:scale-95 transition flex items-center gap-2 animate-bounce">
+        <i class="fa-solid fa-tower-broadcast text-sm"></i>
+        <span>REPORT SOS</span>
+      </button>
+
+      <!-- Portal Switcher Links -->
+      <a href="/gov" class="px-3 py-2 rounded-xl text-xs font-bold bg-amber-600/30 hover:bg-amber-600/50 text-amber-300 border border-amber-500/50 flex items-center gap-1.5 transition">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>Gov Server</span>
+      </a>
+      <a href="/survivor" class="px-2.5 py-2 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center gap-1 transition">
+        <i class="fa-solid fa-life-ring"></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- ================= MAIN MAP WORKSPACE ================= -->
+  <div class="relative flex-1 w-full h-full overflow-hidden">
+    <!-- Map Canvas -->
+    <div id="map"></div>
+
+    <!-- Banner for Marking Flood-Prone Area (when active) -->
+    <div id="marking-banner" class="hidden absolute top-4 left-1/2 -translate-x-1/2 z-30 glass-panel px-5 py-2.5 rounded-2xl border border-amber-500/50 shadow-2xl flex items-center gap-3 animate-fade-in">
+      <div class="w-3 h-3 rounded-full bg-amber-400 animate-ping"></div>
+      <span class="text-xs font-medium text-amber-200">
+        <strong class="font-bold">Marking Mode Active:</strong> Click anywhere on the map to define a flood-prone zone.
+      </span>
+      <button onclick="toggleMarkingTool(false)" class="ml-2 text-xs px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">
+        Cancel
+      </button>
+    </div>
+
+    <!-- ================= LEFT FLOATING FILTER & LEGEND PANEL ================= -->
+    <div class="absolute top-4 left-4 z-20 w-80 glass-panel rounded-2xl border border-slate-700/60 p-4 max-h-[calc(100vh-6rem)] overflow-y-auto space-y-4 shadow-2xl">
+      
+      <!-- YAAD KARLO FILTER PERSISTENCE (Requirement 8) -->
+      <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-700/70">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="text-base">🧠</span>
+            <div>
+              <h2 class="text-xs font-bold text-slate-200">Filters (Yaad Karlo)</h2>
+              <p class="text-[10px] text-slate-400">Auto-saved session memory</p>
+            </div>
+          </div>
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" id="toggle-remember-filters" class="sr-only peer" checked onchange="toggleRememberFilter(this.checked)">
+            <div class="w-9 h-5 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-500"></div>
+          </label>
+        </div>
+        <div id="yaad-status-pill" class="mt-2 text-[10px] py-1 px-2 rounded-lg bg-emerald-950/60 text-emerald-400 border border-emerald-800/60 flex items-center gap-1.5">
+          <i class="fa-solid fa-circle-check text-emerald-400 text-xs"></i>
+          <span>Preferences remembered (Yaad hai)</span>
+        </div>
+      </div>
+
+      <!-- SEARCH BAR -->
+      <div class="relative">
+        <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-xs text-slate-400"></i>
+        <input type="text" id="filter-search" oninput="applyFilters()" placeholder="Search settlement, bridge, zone..." class="w-full bg-slate-900/90 border border-slate-700 rounded-xl pl-8 pr-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500">
+      </div>
+
+      <!-- COLOR CODED RISK ZONES (Requirements 1, 2, 3, 4) -->
+      <div>
+        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5 flex items-center justify-between">
+          <span>Hazard Zoning Levels</span>
+          <span class="text-[10px] text-slate-500 lowercase">realistic calibrated</span>
+        </h3>
+        
+        <div class="space-y-2">
+          <!-- 1. Green: Safe Zone -->
+          <div class="flex items-center justify-between p-2 rounded-xl bg-slate-900/60 hover:bg-slate-900/90 border border-emerald-900/40 transition">
+            <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
+              <input type="checkbox" id="chk-green" checked onchange="applyFilters()" class="w-3.5 h-3.5 rounded accent-emerald-500">
+              <span class="w-3.5 h-3.5 rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/50"></span>
+              <div>
+                <div class="text-xs font-semibold text-emerald-300">1. Green — Safe Zone</div>
+                <div class="text-[10px] text-slate-400">Evacuation camp, high ground</div>
+              </div>
+            </label>
+            <div class="flex items-center gap-1.5">
+              <button onclick="flyToZone('safe')" title="Zoom to safe zone" class="p-1 rounded bg-slate-800 hover:bg-emerald-800 text-emerald-300 text-[10px]">
+                <i class="fa-solid fa-crosshairs"></i>
+              </button>
+              <span id="cnt-green" class="text-xs font-bold text-emerald-400 px-2 py-0.5 rounded bg-emerald-950">2</span>
+            </div>
+          </div>
+
+          <!-- 2. Yellow: Flood Nearby -->
+          <div class="flex items-center justify-between p-2 rounded-xl bg-slate-900/60 hover:bg-slate-900/90 border border-amber-900/40 transition">
+            <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
+              <input type="checkbox" id="chk-yellow" checked onchange="applyFilters()" class="w-3.5 h-3.5 rounded accent-amber-500">
+              <span class="w-3.5 h-3.5 rounded-full bg-amber-500 shadow-lg shadow-amber-500/50"></span>
+              <div>
+                <div class="text-xs font-semibold text-amber-300">2. Yellow — Flood Nearby</div>
+                <div class="text-[10px] text-slate-400">Rising water, caution buffer</div>
+              </div>
+            </label>
+            <div class="flex items-center gap-1.5">
+              <button onclick="flyToZone('nearby')" title="Zoom to nearby flood" class="p-1 rounded bg-slate-800 hover:bg-amber-800 text-amber-300 text-[10px]">
+                <i class="fa-solid fa-crosshairs"></i>
+              </button>
+              <span id="cnt-yellow" class="text-xs font-bold text-amber-400 px-2 py-0.5 rounded bg-amber-950">1</span>
+            </div>
+          </div>
+
+          <!-- 3. Orange: Unsafe Zone -->
+          <div class="flex items-center justify-between p-2 rounded-xl bg-slate-900/60 hover:bg-slate-900/90 border border-orange-900/40 transition">
+            <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
+              <input type="checkbox" id="chk-orange" checked onchange="applyFilters()" class="w-3.5 h-3.5 rounded accent-orange-500">
+              <span class="w-3.5 h-3.5 rounded-full bg-orange-500 shadow-lg shadow-orange-500/50"></span>
+              <div>
+                <div class="text-xs font-semibold text-orange-300">3. Orange — Unsafe Zone</div>
+                <div class="text-[10px] text-slate-400">Road erosion, rapid swell</div>
+              </div>
+            </label>
+            <div class="flex items-center gap-1.5">
+              <button onclick="flyToZone('unsafe')" title="Zoom to unsafe zone" class="p-1 rounded bg-slate-800 hover:bg-orange-800 text-orange-300 text-[10px]">
+                <i class="fa-solid fa-crosshairs"></i>
+              </button>
+              <span id="cnt-orange" class="text-xs font-bold text-orange-400 px-2 py-0.5 rounded bg-orange-950">1</span>
+            </div>
+          </div>
+
+          <!-- 4. Red: Flooded Zone -->
+          <div class="flex items-center justify-between p-2 rounded-xl bg-slate-900/60 hover:bg-slate-900/90 border border-red-900/40 transition">
+            <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
+              <input type="checkbox" id="chk-red" checked onchange="applyFilters()" class="w-3.5 h-3.5 rounded accent-red-500">
+              <span class="w-3.5 h-3.5 rounded-full bg-red-500 shadow-lg shadow-red-500/50 animate-pulse"></span>
+              <div>
+                <div class="text-xs font-semibold text-red-300">4. Red — Flooded Zone</div>
+                <div class="text-[10px] text-slate-400">Active inundation & debris flow</div>
+              </div>
+            </label>
+            <div class="flex items-center gap-1.5">
+              <button onclick="flyToZone('flooded')" title="Zoom to flooded zone" class="p-1 rounded bg-slate-800 hover:bg-red-800 text-red-300 text-[10px]">
+                <i class="fa-solid fa-crosshairs"></i>
+              </button>
+              <span id="cnt-red" class="text-xs font-bold text-red-400 px-2 py-0.5 rounded bg-red-950">2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADDITIONAL TOGGLES (Req 5 & Req 6) -->
+      <div class="space-y-2 pt-2 border-t border-slate-800">
+        <!-- Flood Prone Areas Toggle -->
+        <label class="flex items-center justify-between p-2 rounded-xl bg-slate-900/50 hover:bg-slate-900 border border-slate-700/60 cursor-pointer transition">
+          <div class="flex items-center space-x-2.5">
+            <input type="checkbox" id="chk-flood-prone" checked onchange="applyFilters()" class="w-3.5 h-3.5 rounded accent-purple-500">
+            <i class="fa-solid fa-triangle-exclamation text-purple-400 text-xs"></i>
+            <div>
+              <div class="text-xs font-semibold text-purple-300">Flood Prone Areas</div>
+              <div class="text-[10px] text-slate-400">Marked vulnerable basins</div>
+            </div>
+          </div>
+          <span id="cnt-flood-prone" class="text-xs font-bold text-purple-400 px-2 py-0.5 rounded bg-purple-950">2</span>
+        </label>
+
+        <!-- 15-Day Locked Only Toggle -->
+        <label class="flex items-center justify-between p-2 rounded-xl bg-slate-900/50 hover:bg-slate-900 border border-slate-700/60 cursor-pointer transition">
+          <div class="flex items-center space-x-2.5">
+            <input type="checkbox" id="chk-15day-locked" onchange="applyFilters()" class="w-3.5 h-3.5 rounded accent-red-500">
+            <i class="fa-solid fa-lock text-red-400 text-xs"></i>
+            <div>
+              <div class="text-xs font-semibold text-red-300">15-Day Lock Active Only</div>
+              <div class="text-[10px] text-slate-400">Mandatory post-flood watch</div>
+            </div>
+          </div>
+          <span class="text-[10px] font-bold text-red-400 px-1.5 py-0.5 rounded bg-red-950">Enforced</span>
+        </label>
+      </div>
+
+      <!-- REALISTIC SATELLITE OVERLAY OPACITY SLIDER (Note requirement) -->
+      <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-700/60">
+        <div class="flex justify-between items-center mb-1.5">
+          <span class="text-xs font-semibold text-slate-300">Realistic Water Opacity</span>
+          <span id="opacity-val" class="text-xs font-mono text-cyan-400">45%</span>
+        </div>
+        <input type="range" id="slider-opacity" min="15" max="95" value="45" oninput="updateOverlayOpacity(this.value)" class="w-full h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-cyan-400">
+        <p class="text-[10px] text-slate-400 mt-1">Blend calibrated flood colors with underlying satellite imagery.</p>
+      </div>
+
+      <!-- RESET FILTERS BUTTON -->
+      <button onclick="resetFilters()" class="w-full py-2 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition">
+        <i class="fa-solid fa-rotate-left mr-1.5"></i> Reset All Filters
+      </button>
+
+    </div>
+
+    <!-- ================= RIGHT DRAWER: 15-DAY MANDATORY RETENTION WATCHLIST (Req 6) ================= -->
+    <div id="watchlist-drawer" class="absolute top-4 right-4 z-20 w-96 glass-panel rounded-2xl border border-red-900/50 p-4 max-h-[calc(100vh-6rem)] overflow-y-auto space-y-4 shadow-2xl transition-all">
+      
+      <div class="flex items-center justify-between border-b border-red-900/50 pb-2.5">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-lg bg-red-950 border border-red-800 flex items-center justify-center text-red-400">
+            <i class="fa-solid fa-lock text-xs"></i>
+          </div>
+          <div>
+            <h2 class="text-xs font-bold text-red-200">15-Day Post-Flood Retention</h2>
+            <p class="text-[10px] text-red-400/80">Rule 6: Flooded reports cannot be ignored &ge; 15 days</p>
+          </div>
+        </div>
+        <button onclick="toggleWatchlistDrawer()" class="text-slate-400 hover:text-white text-xs">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Legal & Operational Protocol Card -->
+      <div class="p-3 rounded-xl bg-red-950/40 border border-red-800/40 text-[11px] text-red-300 space-y-1">
+        <div class="flex items-center gap-1.5 font-bold text-red-200">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <span>SAFETY PROTOCOL ENFORCEMENT</span>
+        </div>
+        <p>Following flood inundation, ground telemetry may fail and secondary landslides occur. All red/flooded reports are strictly locked from dismissal or closure for a minimum of <strong>15 days (half a month)</strong>.</p>
+      </div>
+
+      <!-- Monitored Zones List with Live Countdowns -->
+      <div id="locked-zones-list" class="space-y-2.5">
+        <!-- Rendered dynamically in JS -->
+      </div>
+
+      <!-- Emergency SOS Dispatch Section (Req 7) -->
+      <div class="pt-3 border-t border-slate-800">
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex items-center gap-1.5">
+            <i class="fa-solid fa-tower-broadcast text-rose-500 text-xs"></i>
+            <h3 class="text-xs font-bold text-white uppercase tracking-wider">Active SOS Signals (<span id="sos-active-count">2</span>)</h3>
+          </div>
+          <button onclick="openSOSModal()" class="text-[11px] text-rose-400 hover:underline font-semibold">+ New SOS</button>
+        </div>
+
+        <div id="sos-feed-list" class="space-y-2 max-h-56 overflow-y-auto">
+          <!-- Rendered dynamically in JS -->
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ================= MODAL: 15-DAY VIOLATION POPUP ================= -->
+  <div id="modal-15day-block" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="w-full max-w-md bg-slate-900 border-2 border-red-600 rounded-2xl p-6 shadow-2xl space-y-4">
+      <div class="w-14 h-14 rounded-2xl bg-red-950 border border-red-700 flex items-center justify-center text-red-500 mx-auto text-2xl animate-bounce">
+        <i class="fa-solid fa-shield-halved"></i>
+      </div>
+      <div class="text-center space-y-1">
+        <h3 class="text-base font-bold text-red-300">Action Strictly Blocked</h3>
+        <p class="text-xs text-slate-300">Mandatory 15-Day Post-Flood Retention Rule</p>
+      </div>
+      <div id="modal-15day-reason" class="p-3 rounded-xl bg-red-950/40 border border-red-800/60 text-xs text-red-200 leading-relaxed font-mono">
+        <!-- Message populated dynamically -->
+      </div>
+      <p class="text-[11px] text-slate-400 text-center">
+        Under disaster safety protocols, flooded zone reports cannot be ignored or archived for at least half a month (15 days) from the incident date.
+      </p>
+      <button onclick="close15DayModal()" class="w-full py-2.5 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-white transition">
+        Acknowledge & Maintain Active Monitoring
+      </button>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: SUBMIT SOS (Requirement 7) ================= -->
+  <div id="modal-sos" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="w-full max-w-lg bg-slate-900 border border-rose-600/70 rounded-2xl p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-xl bg-red-600 text-white flex items-center justify-center text-sm shadow-lg shadow-red-600/40">
+            <i class="fa-solid fa-tower-broadcast"></i>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-white">Emergency SOS Distress Dispatch</h3>
+            <p class="text-[11px] text-slate-400">Broadcast coordinates to Nepal Disaster Authority & Rescue Boats</p>
+          </div>
+        </div>
+        <button onclick="closeSOSModal()" class="text-slate-400 hover:text-white">
+          <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+      </div>
+
+      <form id="form-sos" onsubmit="submitSOS(event)" class="space-y-3.5">
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[11px] font-semibold text-slate-300 mb-1">Caller Name *</label>
+            <input type="text" id="sos-name" required placeholder="e.g. Pemba Sherpa" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500">
+          </div>
+          <div>
+            <label class="block text-[11px] font-semibold text-slate-300 mb-1">Phone Number *</label>
+            <input type="text" id="sos-phone" required placeholder="+977-9800-000000" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-semibold text-slate-300 mb-1">Landmark / Location Description *</label>
+          <input type="text" id="sos-location" required placeholder="e.g. Near damaged bridge, Syabrubesi roadside" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[11px] font-semibold text-slate-300 mb-1">Latitude</label>
+            <input type="number" step="0.0001" id="sos-lat" required value="27.8015" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500">
+          </div>
+          <div>
+            <label class="block text-[11px] font-semibold text-slate-300 mb-1">Longitude</label>
+            <input type="number" step="0.0001" id="sos-lng" required value="85.9080" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-2">
+          <div>
+            <label class="block text-[10px] text-slate-300 mb-1">Total Trapped</label>
+            <input type="number" id="sos-trapped" value="4" min="1" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-2 py-1.5 text-xs text-white">
+          </div>
+          <div>
+            <label class="block text-[10px] text-slate-300 mb-1">Children</label>
+            <input type="number" id="sos-children" value="1" min="0" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-2 py-1.5 text-xs text-white">
+          </div>
+          <div>
+            <label class="block text-[10px] text-slate-300 mb-1">Elderly</label>
+            <input type="number" id="sos-elderly" value="1" min="0" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-2 py-1.5 text-xs text-white">
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between p-2.5 rounded-xl bg-red-950/50 border border-red-800">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-heart-pulse text-red-400"></i>
+            <span class="text-xs font-semibold text-red-200">Critical Medical Emergency</span>
+          </div>
+          <input type="checkbox" id="sos-medical" class="w-4 h-4 rounded accent-red-500">
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-semibold text-slate-300 mb-1">Immediate Needs</label>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <label class="flex items-center gap-2 text-slate-300"><input type="checkbox" name="sos_need" value="Raft / Boat Rescue" checked class="accent-red-500"> Boat / Raft Evac</label>
+            <label class="flex items-center gap-2 text-slate-300"><input type="checkbox" name="sos_need" value="Drinking Water" checked class="accent-red-500"> Clean Drinking Water</label>
+            <label class="flex items-center gap-2 text-slate-300"><input type="checkbox" name="sos_need" value="Urgent Medicines" class="accent-red-500"> Medicines / First Aid</label>
+            <label class="flex items-center gap-2 text-slate-300"><input type="checkbox" name="sos_need" value="Food Rations" class="accent-red-500"> Emergency Rations</label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-semibold text-slate-300 mb-1">Critical Situation Message</label>
+          <textarea id="sos-message" rows="2" placeholder="Explain water depth, rooftop access, immediate hazards..." class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2 text-xs text-white focus:outline-none focus:border-red-500"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-2.5 rounded-xl text-xs font-bold bg-gradient-to-r from-red-600 to-rose-700 text-white shadow-lg shadow-red-600/40 hover:brightness-110 active:scale-95 transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-paper-plane"></i>
+          <span>TRANSMIT DISTRESS SOS BEACON</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: MARK FLOOD-PRONE AREA (Requirement 5) ================= -->
+  <div id="modal-mark-floodprone" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="w-full max-w-md bg-slate-900 border border-purple-600/70 rounded-2xl p-6 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-xl bg-purple-600 text-white flex items-center justify-center text-sm">
+            <i class="fa-solid fa-draw-polygon"></i>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-white">Mark Flood-Prone Area</h3>
+            <p class="text-[11px] text-slate-400">Designate vulnerable drainage corridors & basins</p>
+          </div>
+        </div>
+        <button onclick="closeMarkModal()" class="text-slate-400 hover:text-white">
+          <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+      </div>
+
+      <form id="form-mark-floodprone" onsubmit="submitFloodProne(event)" class="space-y-3">
+        <div>
+          <label class="block text-[11px] font-semibold text-slate-300 mb-1">Area / Basin Name *</label>
+          <input type="text" id="fp-name" required placeholder="e.g. Upper Trishuli Gorge Alluvial Plain" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-purple-500">
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-semibold text-slate-300 mb-1">River Basin / Tributary *</label>
+          <input type="text" id="fp-basin" required placeholder="e.g. Bhote Koshi - Langtang Khola" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-purple-500">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[11px] font-semibold text-slate-300 mb-1">Risk Severity *</label>
+            <select id="fp-risk" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-purple-500">
+              <option value="Extreme">Extreme (GLOF Vulnerable)</option>
+              <option value="High" selected>High (Annual Monsoon)</option>
+              <option value="Moderate">Moderate (5-Year Recurrence)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[11px] font-semibold text-slate-300 mb-1">Hazard Radius (meters)</label>
+            <input type="number" id="fp-radius" value="1500" step="100" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[11px] font-semibold text-slate-300 mb-1">Latitude</label>
+            <input type="number" step="0.0001" id="fp-lat" required class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white">
+          </div>
+          <div>
+            <label class="block text-[11px] font-semibold text-slate-300 mb-1">Longitude</label>
+            <input type="number" step="0.0001" id="fp-lng" required class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-semibold text-slate-300 mb-1">Geomorphological Notes / Evidence</label>
+          <textarea id="fp-notes" rows="2" placeholder="e.g. Steep moraine slopes, sediment deposition, constricted river gorge..." class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2 text-xs text-white focus:outline-none focus:border-purple-500"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-2.5 rounded-xl text-xs font-bold bg-purple-600 hover:bg-purple-500 text-white transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-map-pin"></i>
+          <span>Save & Designate Flood-Prone Area</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Audio Beep Generator for SOS Alert Chime -->
+  <script>
+    function playSOSBeep() {
+      try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(880, audioCtx.currentTime); // A5 note
+        osc.frequency.exponentialRampToValueAtTime(440, audioCtx.currentTime + 0.3);
+        gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+        gain.gain.linearRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.35);
+      } catch (e) {
+        console.log("Audio alert blocked by browser autoplay");
+      }
+    }
+  </script>
+
+  <!-- Application Logic -->
+  <script src="/static/app.js"></script>
+</body>
+</html>
